@@ -12,14 +12,18 @@ let fa = document.getElementById("fa")
 let faa = document.getElementById("faa")
 let what = document.getElementById("what")
 let dev = document.getElementById("dev")
+let devs = document.getElementById("devs")
 let img = document.getElementById("img")
+let imgg = document.getElementById("imgg")
 
 window.onscroll = function () { scroll() };
 // location.reload(){
 //     dev.style.marginTop = "0%"
 // }
 dev.style.marginTop = '0%'
+devs.style.marginTop = '0%'
 img.style.top = '25%'
+imgg.style.top = '25%'
 what.value = ""
 function scroll(){
     imgs.style.marginTop = "0%";

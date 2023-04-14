@@ -11,7 +11,7 @@
 </head>
 <body>
     <main onscroll="scroll()">
-        <div class="top w-100 d-flex align-items-center justify-content-between px-4">
+        <div id="topn" class="top w-100 d-flex align-items-center justify-content-between px-4">
             <a class="btn"><img src="iDev-HM.png" width="40px" alt=""></a>
             <div class="div d-flex align-items-center mt-3 mb-0 mx-3">
                 <ul><button class="btn">Home</button></ul>
@@ -24,32 +24,100 @@
                         <button class="btn text-start" onclick="get2()">Agent</button>
                     </div>
                 </ul>
-                <ul><button class="btn">Sign in</button></ul>
+                <ul><button class="btn sign">Sign in</button></ul>
             </div>
         </div>
         <div class="body">
             <!--  -->
-            <div class="landd">
-                <div id="land" class="land d-flex align-items-center justify-content-between py-5">
-                    <h1 class="dev text-light"><span class="h1 display-4">i</span><span class="h1 text-danger display-4">Dev</span> Hostel Accomodations</h1>
-                    <div class="st d-flex align-items-center justify-content-center w-50">
-                        <button class="start" onclick="start()"><h4 class="text-white p-2 h-100 w-100">Get Started</h4></button>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner landd">
+                  <div id="land" class="carousel-item active land d-flex flex-column align-items-start justify-content-around py-5">
+                    <h1 class="dev text-light"><span class="h1 display-4">i</span><span class="h1 text-danger display-4">Dev</span> Hostel Management</h1>
+                    <button class="start text-white h2 px-3 py-2" onclick="start()">Get Started<i class="fa fa-angles-right h5"></i></button>
+                  </div>
+                  <div class="carousel-item lands">
+                    <img id="img" src="newbie.jpg" width="400px" height="300px" alt="">
+                    <div id="land" class="landed d-flex align-items-center justify-content-between py-5">
+                        <h1 id="dev">Hostel rooms and apartments at affordable price</h1>
+                        <!-- <div class="st d-flex align-items-center justify-content-center w-50">
+                            <button class="start" onclick="start()"><h4 class="text-white p-2 h-100 w-100">Get Started</h4></button>
+                        </div> -->
                     </div>
+                  </div>
+                  <div class="carousel-item lands">
+                    <img id="imgg" src="dark-room.jpg" width="400px" height="300px" alt="">
+                        <div id="lands" class="landed d-flex align-items-center justify-content-between py-5">
+                            <h1 id="devs">Nice and condusive environment</h1>
+                            <!-- <div class="st d-flex align-items-center justify-content-center w-50">
+                                <button class="start" onclick="start()"><h4 class="text-white p-2 h-100 w-100">Get Started</h4></button>
+                            </div> -->
+                        </div>
+                  </div>
+                </div>
+              </div>
+            <div class="">
+                <div class="">
+                    <!-- <div class="st d-flex align-items-center justify-content-center w-50">
+                        
+                    </div> -->
                 </div>
             </div>
             <!-- #region -->
-            <div id="imgs" class="imgs d-flex justify-content-around py-5 container">
-                <h2 class="w-50">Check out the examples of available hostels and rooms depending on your School || Campus || location
-                    <!-- <span id="typed_string">
-                        <span>School</span>
-                        <span>Campus</span>
-                        <span>location</span>
-                    </span>
-                    <span id="typed"></span> -->
-                </h2>
-                <img src="animh-1.jpg" alt="">
+            <div id="imgs" class="imgs d-flex flex-column justify-content-around align-items-center text-center my-5 py-5 w-75 container">
+                <div class="d-flex w-100 align-items-center justify-content-center text-center container w-100 my-2"><hr class="w-100"><h4 class="bout mx-3">ABOUT US</h4><hr class="w-100"></div>
+                <h4 class="w-100">At our company, we are dedicated to providing exceptional service and creating a seamless experience for our clients, whether they are seeking short-term accommodation, a new home, or looking to rent out their property.</h4>
             </div>
-            <div class="image gap-2">
+            <!-- <div class="text-start container w-100">
+                <div class="d-flex w-100 align-items-center justify-content-center text-center container w-100"><hr class="w-100"><h4 class="boutT mx-3">WHAT WE OFFER</h4><hr class="w-100"></div>
+                <div class="d-flex flex-column gap-2">
+                    <div class="d-flex justify-content-between align-items-stretch">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h5 class="d-flex flex-column justify-content-around boutT">ROOMS</h5>
+                            <h6 class="w-75 fs-5"> At our company, we provide comfortable and affordable rooms for students, travelers, and anyone seeking short-term accommodation.</h6>
+                        </div>
+                        <img src="room.jpg" alt="">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-stretch">
+                        <img src="roomate.jpg" alt="">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h5 class="d-flex flex-column justify-content-around boutT">ROOMMATE</h5>
+                            <h6 class="w-75 fs-5">We understand that finding the perfect roommate can be a challenge, which is why we offer a platform for individuals to connect with potential roommates and create lasting friendships.</h6>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-stretch">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h5 class="d-flex flex-column justify-content-around boutT">ROOMS</h5>
+                            <h6 class="w-75 fs-5"> At our company, we provide comfortable and affordable rooms for students, travelers, and anyone seeking short-term accommodation.</h6>
+                        </div>
+                        <img src="room.jpg" alt="">
+                    </div>
+                </div>
+            </div> -->
+            <div class="offer-section gap-1 px-5">
+                <div class="d-flex w-100 align-items-center justify-content-center text-center container w-100 my-4"><hr class="w-100"><h4 class="boutT mx-3">WHAT WE OFFER</h4><hr class="w-100"></div>
+                <div class="offer-box">
+                  <div class="imag"><img src="room.jpg" alt=""></div>
+                  <h3 class="offer-title">Comfortable Rooms</h3>
+                  <p class="offer-description">We offer comfortable and affordable rooms for students, travelers, and anyone seeking short-term accommodation.</p>
+                </div>
+                <div class="offer-box">
+                  <div class="imag"><img src="roomate.jpg" alt=""></div>
+                  <h3 class="offer-title">Friendly Roommates</h3>
+                  <p class="offer-description">We provide a platform for individuals to connect with potential roommates and create lasting friendships.</p>
+                </div>
+                <div class="offer-box">
+                  <div class="imag"><img src="luxury room.jpg" alt=""></div>
+                  <h3 class="offer-title">Quality Apartments</h3>
+                  <p class="offer-description">Our goal is to provide quality apartments that meet the needs of our tenants, whether they are seeking a cozy studio or a spacious two-bedroom unit.</p>
+                </div>
+                <div class="offer-box">
+                  <div class="imag"><img src="newbie.jpg" alt=""></div>
+                  <h3 class="offer-title">Expert Agents</h3>
+                  <p class="offer-description">Our experienced agents are dedicated to helping our clients find the perfect living situation, providing personalized service and expert advice.</p>
+                </div>
+              </div>
+              
+            <!-- <div class="image gap-2">
                 <img src="oh-1.jpg" width="40%" height="600px" alt="">
                 <img src="oh-2.jpg" width="30%" height="300px" alt="">
                 <img src="oh-3.jpg" width="15%" height="300px" alt="">
@@ -60,7 +128,7 @@
                 <img src="" alt="">
                 <img src="" alt="">
                 <img src="" alt="">
-            </div>
+            </div> -->
             <div id="form">
                 <form action="" class="px-5 py-2 gap-3">
                     <button id="fa" class="btn fa"><i class="fa fa-arrow-left"></i></button>
@@ -100,3 +168,4 @@
 </body>
 </html>
 <script src="script.js"></script>
+<script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js"></script>
