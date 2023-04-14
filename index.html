@@ -13,46 +13,43 @@
     <main onscroll="scroll()">
         <div class="top w-100 d-flex align-items-center justify-content-between px-4">
             <a class="btn"><img src="iDev-HM.png" width="40px" alt=""></a>
-            <ul class="div d-flex align-items-center mt-3 mb-0 mx-3 gap-5">
-                <li><button class="h6 bg-transparent">Home</button></li>
-                <li><button class="h6 bg-transparent">About us</button></li>
-                <li class="stats">
-                    <button class="h6 bg-transparent get" onclick="get()">Get started</button>
-                    <div class="stat gap-1 p-3">
-                        <button class="h6 bg-transparent text-start" onclick="get1()">Occupant</button>
-                        <button class="h6 bg-transparent text-start" onclick="get2()">Agent</button>
+            <div class="div d-flex align-items-center mt-3 mb-0 mx-3">
+                <ul><button class="btn">Home</button></ul>
+                <ul><button class="btn">About us</button></ul>
+                <ul class="stats">
+                    <button class="btn get" onclick="get()">Get started</button>
+                    <div class="stat gap-1 pb-3">
+                        <div class="iv"></div>
+                        <button class="btn text-start" onclick="get1()">Occupant</button>
+                        <button class="btn text-start" onclick="get2()">Agent</button>
                     </div>
-                </li>
-                <li><button class="h6 bg-transparent text-start">Sign in</button></li>
-            </ul>
+                </ul>
+                <ul><button class="btn">Sign in</button></ul>
+            </div>
         </div>
         <div class="body">
             <!--  -->
             <div class="landd">
-                    <img id="img" src="dark-room.jpg" width="400px" height="300px" alt="">
                 <div id="land" class="land d-flex align-items-center justify-content-between py-5">
-                    <h1 id="dev">Hostel rooms and apartments at affordable price</h1>
-                    <!-- <div class="st d-flex align-items-center justify-content-center w-50">
+                    <h1 class="dev text-light"><span class="h1 display-4">i</span><span class="h1 text-danger display-4">Dev</span> Hostel Accomodations</h1>
+                    <div class="st d-flex align-items-center justify-content-center w-50">
                         <button class="start" onclick="start()"><h4 class="text-white p-2 h-100 w-100">Get Started</h4></button>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-            <div id="about">
-                <div class="d-flex align-items-center justify-content-around text-center container w-100"><hr class="w-100"><h4 class="w-100 text-warning">ABOUT US</h4><hr class="w-100"></div>
-            </div>
             <!-- #region -->
-            <!-- <div id="imgs" class="imgs d-flex justify-content-around py-5 container">
+            <div id="imgs" class="imgs d-flex justify-content-around py-5 container">
                 <h2 class="w-50">Check out the examples of available hostels and rooms depending on your School || Campus || location
-                    <span id="typed_string">
+                    <!-- <span id="typed_string">
                         <span>School</span>
                         <span>Campus</span>
                         <span>location</span>
                     </span>
-                    <span id="typed"></span>
+                    <span id="typed"></span> -->
                 </h2>
                 <img src="animh-1.jpg" alt="">
-            </div> -->
-            <!-- <div class="image gap-2">
+            </div>
+            <div class="image gap-2">
                 <img src="oh-1.jpg" width="40%" height="600px" alt="">
                 <img src="oh-2.jpg" width="30%" height="300px" alt="">
                 <img src="oh-3.jpg" width="15%" height="300px" alt="">
@@ -63,7 +60,7 @@
                 <img src="" alt="">
                 <img src="" alt="">
                 <img src="" alt="">
-            </div> -->
+            </div>
             <div id="form">
                 <form action="" class="px-5 py-2 gap-3">
                     <button id="fa" class="btn fa"><i class="fa fa-arrow-left"></i></button>

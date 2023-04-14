@@ -1,43 +1,38 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    overflow-x: hidden;
-}
+
 .top{
-    background-color: cadetblue;
+    background-color: brown;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    z-index: 2;
-}
-.top .div{
-    list-style-type: none;
+    z-index: 1;
 }
 .top button{
     color: white;
     font-weight: 400;
     white-space: nowrap;
-    border: none;
 }
 .top button:hover{
-    background-color: ;
-    color: orange;
+    background-color: bisque;
+    /* color: green; */
 }
 .stat{
     display: none;
     position: absolute;
-    background-color: cadetblue;
+    background-color: beige;
     width: 140px;
 }
 .stat button{
-    color: wheat;
-    border-radius: 0;
+    color: brown;
+}
+.stat .iv{
+    height: 16px;
+    background-color: brown;
 }
 .stat button:hover{
-    color: orange;
+    background-color: rgba(222, 184, 135, 0.822);
+    color: brown;
+    border-radius: 0;
 }
 .stats:hover .stat{
     display: flex;
@@ -61,44 +56,26 @@ body{
     background-color: rgba(255, 255, 255, 0.774);
 } */
 .landd{
-    /* height: 88vh;
-    background-image: url(oh-1.jpg); */
+    height: 88vh;
+    background-image: url(oh-1.jpg);
+    background-size: cover;
     width: 100%;
     height: 100vh;
-    background-size: cover;
-    /* background-position: center; */
-    background: linear-gradient(to bottom right, aliceblue, aliceblue, aliceblue, grey, grey, grey);
+    background-position: center;
     padding-top: 5%;
 }
 .land{
     padding-inline: 100px;
-    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.4);
     height: 100%;
-    width: 60%;
-    transform: skewX(-45deg);
-    z-index: -1;
-    /* border-radius: 0px 40% 100% 0px; */
+    width: 100%;
     /* backdrop-filter: blur(2px); */
 }
-.landd #img{
-    position: absolute;
-    right: 10%;
-    top: 100%;
-    transition-property: margin-bottom;
-    transition: ease-in-out 1s;
-    z-index: 1;
-    /* margin-right: -400px; */
-}
-#dev{
-    transform: skewX(45deg);
-    font-size: 60px;
-    width: 90%;
+.dev{
+    font-size: 80px;
+    width: 20%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: italic;
-    font-weight: 500;
-    margin-top: -200%;
-    transition-property: margin-top;
-    transition: ease-in-out 1s;
+    font-weight: 600;
     /* text-shadow: 0px 0px 2px gray; */
     /* text-shadow: 0px 0px 4px black; */
 }
