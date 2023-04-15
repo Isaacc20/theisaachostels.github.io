@@ -1,4 +1,10 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    background-color: aliceblue;
+}
 #topn{
     background-color: brown;
     position: fixed;
@@ -7,39 +13,36 @@
     left: 0;
     z-index: 2;
 }
-.top button{
+.top .btn{
     color: white;
     font-weight: 400;
     white-space: nowrap;
+    border: none;
 }
-.top button:hover{
+.top .btn:hover{
     /* background-color: bisque; */
     color: cadetblue;
 }
 .top .sign{
     color: orange;
 }
-.stat{
+/* .stat{
     display: none;
     position: absolute;
-    background-color: aliceblue;
+    background-color: beige;
     width: 140px;
 }
-.stat button{
+.stat .btn{
     color: cadetblue;
 }
-.stat .iv{
-    height: 16px;
-    background-color: brown;
-}
-.stat button:hover{
+.stat .btn:hover{
     color: orange;
     border-radius: 0;
 }
 .stats:hover .stat{
     display: flex;
     flex-direction: column;
-}
+} */
 /* .blur{
     background-image: url(oh-1.jpg);
     height: 100%;
@@ -58,13 +61,11 @@
     background-color: rgba(255, 255, 255, 0.774);
 } */
 .landd{
-    height: 88vh;
     background-image: url(oh-1.jpg);
     background-size: cover;
     width: 100%;
     height: 100vh;
     background-position: center;
-    padding-top: 5%;
 }
 .land{
     padding-inline: 100px;
@@ -158,8 +159,9 @@
     transform: skewY(-10deg);
 } */
 #imgs{
-    margin-top: 120%;
-    transition: all ease-in-out 2s;
+    scroll-behavior: smooth;
+    margin-top: 50%;
+    transition: margin-top ease-in-out 2s;
 }
 /* image{
     display: flex;
@@ -205,7 +207,6 @@
     line-height: 1.5;
     color: #555;
   }
-  
   .person{
     height: 300px;
   }
@@ -218,9 +219,10 @@
     transition: all ease-in-out 0.3s;
   }
   .person a:hover{
-    background-color: transparent;
+    background-color: white;
     color: cadetblue;
     transform: translateY(-4%);
+    border-left: 1px solid orange;
     box-shadow: 0px 2px 8px black;
   }
 #form{
@@ -240,14 +242,25 @@
     display: flex;
     flex-direction: column;
     width: 70%;
-    height: 90%;
+    height: 80%;
     box-shadow: 0px 0px 8px black;
     background-color: white;
     border-top: 7px solid cadetblue;
     border-bottom: 7px solid brown;
     border-radius: 5px;
+    /* background-image: url(iDev\ HM\ Black.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat; */
 }
-#form form #fa{
+#form form p{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+#form form #fa, #faa{
     width: fit-content;
     border: none;
 }
@@ -258,19 +271,30 @@
     outline: none;
     border: none;
     border-bottom: 1px solid orange;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out 0.2s;
 }
 #form form .inp:hover, #form form .inp:focus-within{
-    border-bottom: .31px solid orange;
-    box-shadow: 0px 5px 8px grey;
+    border-inline: 1px solid orange;
+    box-shadow: 0px 7px 7px grey;
 }
 .add{
     border: none;
     border-bottom: 1px solid black;
     box-shadow: 0px 5px 8px grey;
 }
+#form form .inp input{
+    border: none;
+    outline: none;
+}
+#form form .inp .btn{
+    visibility: hidden;
+}
 #form form h5 button, #form form h6 button{
-    color: orange;
+    color: cadetblue;
     background-color: transparent;
     border: none;
+}
+#form #signup, #login{
+    display: flex;
+    flex-direction: column;
 }
