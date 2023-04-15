@@ -86,7 +86,12 @@
     border: none;
     transition: all ease-in-out 0.5s;
 }
-.st button:hover{
+.startt{
+    color: grey;
+    border: none;
+    background-color: transparent;
+}
+.start button:hover{
     background-color: transparent;
     border: 2px dashed red;
 }
@@ -153,7 +158,8 @@
     transform: skewY(-10deg);
 } */
 #imgs{
-    margin-top: 20%;
+    margin-top: 120%;
+    transition: all ease-in-out 2s;
 }
 /* image{
     display: flex;
@@ -200,7 +206,23 @@
     color: #555;
   }
   
-
+  .person{
+    height: 300px;
+  }
+  .person h3{
+    color: brown;
+  }
+  .person a{
+    color: aliceblue;
+    background-color: cadetblue;
+    transition: all ease-in-out 0.3s;
+  }
+  .person a:hover{
+    background-color: transparent;
+    color: cadetblue;
+    transform: translateY(-4%);
+    box-shadow: 0px 2px 8px black;
+  }
 #form{
     position: absolute;
     width: 100%;
@@ -219,8 +241,11 @@
     flex-direction: column;
     width: 70%;
     height: 90%;
-    background: linear-gradient(to bottom, skyblue, white, white, white);
     box-shadow: 0px 0px 8px black;
+    background-color: white;
+    border-top: 7px solid cadetblue;
+    border-bottom: 7px solid brown;
+    border-radius: 5px;
 }
 #form form #fa{
     width: fit-content;
@@ -231,12 +256,12 @@
 }
 #form form .inp{
     outline: none;
-    border: 1px solid black;
+    border: none;
+    border-bottom: 1px solid orange;
     transition: all ease-in-out 0.5s;
 }
 #form form .inp:hover, #form form .inp:focus-within{
-    border: none;
-    border-bottom: 1px solid black;
+    border-bottom: .31px solid orange;
     box-shadow: 0px 5px 8px grey;
 }
 .add{
@@ -244,8 +269,8 @@
     border-bottom: 1px solid black;
     box-shadow: 0px 5px 8px grey;
 }
-#form form h5 button{
-    color: brown;
+#form form h5 button, #form form h6 button{
+    color: orange;
     background-color: transparent;
     border: none;
 }

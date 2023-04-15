@@ -24,10 +24,8 @@ dev.style.marginTop = '0%'
 devs.style.marginTop = '0%'
 img.style.top = '25%'
 imgg.style.top = '25%'
-what.value = ""
 function scroll(){
-    imgs.style.marginTop = "0%";
-    imgs.style.transition = "all ease-in-out 2s"
+    imgs.style.marginTop = "7%";
 }
 function start() {
     form.style.display = 'flex'
@@ -46,6 +44,7 @@ function get2() {
 // function fa(){
 //     form.style.display = 'none'
 // }
-fa.addEventListener("click", ()=>{
+fa.addEventListener("click", (ev)=>{
+    ev.preventDefault()
     form.style.display = 'none'
 })
