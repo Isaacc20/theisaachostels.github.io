@@ -5,14 +5,23 @@
 //     loop: true
 // })
 
-let abs = document.getElementById("abs")
 let imgs = document.getElementById("imgs")
 let land = document.getElementById("land")
+let client = document.getElementById("client")
+let clients = document.getElementById("clients")
 let form = document.getElementById("form")
 let login = document.getElementById("login")
+let loggin = document.getElementById("loggin")
+let agentlog = document.getElementById("agentlog")
 let signup = document.getElementById("signup")
+let agentsign = document.getElementById("agentsign")
+let one = document.getElementById("one")
+let two = document.getElementById("two")
+let three = document.getElementById("three")
 let fa = document.getElementById("fa")
 let faa = document.getElementById("faa")
+let faaa = document.getElementById("faaa")
+let faaaa = document.getElementById("faaaa")
 let what = document.getElementById("what")
 let dev = document.getElementById("dev")
 let devs = document.getElementById("devs")
@@ -20,31 +29,116 @@ let img = document.getElementById("img")
 let imgg = document.getElementById("imgg")
 let p = document.getElementById("p")
 let pp = document.getElementById("pp")
+let ppp = document.getElementById("ppp")
+let pppp = document.getElementById("pppp")
 let nam = document.getElementById("name")
+let aname = document.getElementById("aname")
 let email = document.getElementById("email")
+let agmail = document.getElementById("agmail")
+let amail = document.getElementById("amail")
 let password = document.getElementById("password")
-let pass = document.getElementById("pass")
+let apass = document.getElementById("apass")
 let c_password = document.getElementById("c_password")
+let apassword = document.getElementById("apassword")
+let ac_password = document.getElementById("ac_password")
 let eye = document.getElementById("eye")
 let eyee = document.getElementById("eyee")
 let eyes = document.getElementById("eyes")
+let eyese = document.getElementById("eyese")
+let eyesss = document.getElementById("eyesss")
+let eyeeee = document.getElementById("eyeeee")
+let a_country = document.getElementById("a_country")
+let a_state = document.getElementById("a_state")
+let a_city = document.getElementById("a_city")
+let a_address = document.getElementById("a_address")
+let exist = document.getElementById("exist")
+let occ_arr = JSON.parse(localStorage.getItem("Occupants"))
+let agents_arr = JSON.parse(localStorage.getItem("Agents"))
 
+// ANIMATIONS
 window.onscroll = function () { scroll() };
-// location.reload(){
-//     dev.style.marginTop = "0%"
-// }
-// dev.style.marginTop = '0%'
-// devs.style.marginTop = '0%'
-// img.style.top = '25%'
-// imgg.style.top = '25%'
 function scroll(){
     imgs.style.marginTop = "7%";
+    if (document.documentElement.scrollTop > 2000) {
+        clients.style.marginLeft = '0px';
+    } else {
+    clients.style.marginLeft = '-100px';
+  }
 }
+// function scrollFunction() {
+// }
+// if (window.scrollTop > 10000) {
+    
+//   }
+  
+// GET STARTED/SIGN UP/LOGIN BUTTON
 function start() {
     form.style.display = 'flex'
     login.style.display = "none"
+    agentsign.style.display = "none"
+    agentlog.style.display = "none"
     signup.style.display = "flex"
 }
+loggin.addEventListener("click", (ev)=>{
+    ev.preventDefault();
+    startt(ev)
+})
+function startt(ev){
+    ev.preventDefault()
+    form.style.display = 'flex'
+    login.style.display = "flex"
+    signup.style.display = "none"
+    agentsign.style.display = "none"
+    agentlog.style.display = "none"
+}
+// AGENT SIGN UP/LOGIN BUTTON
+function launch(ev){
+    ev.preventDefault()
+    form.style.display = 'flex'
+    login.style.display = "none"
+    signup.style.display = "none"
+    agentsign.style.display = "none"
+    agentlog.style.display = "flex"
+}
+function asign(ev){
+    ev.preventDefault()
+    form.style.display = 'flex'
+    login.style.display = "none"
+    signup.style.display = "none"
+    agentsign.style.display = "flex"
+    agentlog.style.display = "none"
+}
+
+// NEXT/PREV BUTTONS IN AGENT SIGN UP
+function next(ev) {
+    ev.preventDefault();
+    one.style.marginLeft = "-100%"
+    two.style.marginRight = "0%"
+    one.style.transition = "all ease-in-out 0.3s"
+    two.style.transition = "all ease-in-out 0.3s"
+}
+function nextt(ev) {
+    ev.preventDefault();
+    two.style.marginLeft = "-100%"
+    three.style.marginRight = "0%"
+    two.style.transition = "all ease-in-out 0.3s"
+    three.style.transition = "all ease-in-out 0.3s"
+}
+function prev(ev){
+    ev.preventDefault();
+    one.style.marginLeft = "0%"
+    two.style.marginRight = "-100%"
+    one.style.transition = "all ease-in-out 0.3s"
+    two.style.transition = "all ease-in-out 0.3s"
+}
+function prevv(ev){
+    ev.preventDefault();
+    two.style.marginLeft = "0%"
+    three.style.marginRight = "-100%"
+    two.style.transition = "all ease-in-out 0.3s"
+    three.style.transition = "all ease-in-out 0.3s"
+}
+// FORMS
 function get(ev) {
     ev.preventDefault()
     start()
@@ -52,17 +146,8 @@ function get(ev) {
 function get1() {
     start()
 }
-// function get2() {
-//     start()
-//     what.value = "agent"
-// }
-// function fa(ev){
-//     ev.preventDefault()
-//     form.style.display = 'none'
-// }
-abs.addEventListener("click", ()=>{
-    
-})
+
+// FORM BACK ARROW BUTTON
 fa.addEventListener("click", (ev)=>{
     ev.preventDefault()
     form.style.display = 'none'
@@ -71,11 +156,15 @@ faa.addEventListener("click", (ev)=>{
     ev.preventDefault()
     form.style.display = 'none'
 })
-// function showeye(){
-//     let bat = event.target;
-//     let batt = event.target.nextElementSibling.childElement
-//     console.log(batt);
-// }
+faaa.addEventListener("click", (ev)=>{
+    ev.preventDefault()
+    form.style.display = 'none'
+})
+faaaa.addEventListener("click", (ev)=>{
+    ev.preventDefault()
+    form.style.display = 'none'
+})
+// FORM INPUTS
 function eyess() {
     let bat = event.target
     let batt = bat.nextElementSibling.firstElementChild
@@ -102,6 +191,18 @@ password.addEventListener("input", (ev)=>{
     ev.preventDefault()
     eyess()
 })
+apassword.addEventListener("input", (ev)=>{
+    ev.preventDefault()
+    eyess()
+})
+ac_password.addEventListener("input", (ev)=>{
+    ev.preventDefault()
+    eyess()
+})
+apass.addEventListener("input", (ev)=>{
+    ev.preventDefault()
+    eyess()
+})
 eye.addEventListener("click", (ev)=>{
     ev.preventDefault();
     slash()
@@ -110,26 +211,69 @@ eyes.addEventListener("click", (ev)=>{
     ev.preventDefault();
     slash()
 })
+eyese.addEventListener("click", (ev)=>{
+    ev.preventDefault();
+    slash()
+})
+eyesss.addEventListener("click", (ev)=>{
+    ev.preventDefault();
+    slash()
+})
+eyeeee.addEventListener("click", (ev)=>{
+    ev.preventDefault();
+    slash()
+})
+// SIGNUP SUBMIT BUTTON
 function create(ev) {
     ev.preventDefault();
     if (nam.value == "" || email.value == "" || password.value == "" || c_password.value == "") {
         p.style.display = "block"
         p.style.backgroundColor = "red"
         p.innerHTML = "Input fields cannot be left empty"
+        fa.style.color = 'white'
         return;
     } else {
+        let occ_details = {
+            Occ_name: nam.value,
+            Occ_email: email.value,
+            Occ_password:password.value
+        }
+        
         if (password.value != c_password.value) {
             p.style.display = "block"
+            fa.style.color = 'white'
             p.style.backgroundColor = "red"
             p.innerHTML = "Fill the same password"
             return;
         } else {
-            p.style.display = "block"
-            p.style.backgroundColor = "green"
-            p.innerHTML = "Account successfuly created"
-            setTimeout(() => {
-                window.location.href = "iDev HM Black.png"
-            }, 3000);
+            if (occ_arr == null || occ_arr == "") {
+                let occ_arr = []
+                occ_arr.push(occ_details)
+                localStorage.setItem("Occupants", JSON.stringify(occ_arr))
+                console.log(occ_arr);
+                console.log(occ_details);
+            } else{ 
+                let found = occ_arr.find(where => occ_details.Occ_email === where.Occ_email)
+                if(found){
+                    p.style.display = "block"
+                    p.style.backgroundColor = "red"
+                    p.innerHTML = "The email address has already been used"
+                    fa.style.color = 'white'
+                    return;
+                } else{
+                    p.style.display = "block"
+                    fa.style.color = 'white'
+                    p.style.backgroundColor = "green"
+                    p.innerHTML = "Account successfuly created"
+                    occ_arr.push(occ_details)
+                    localStorage.setItem("Occupants", JSON.stringify(occ_arr))
+                    console.log(occ_arr);
+                    console.log(occ_details);
+                }
+            }
+            // setTimeout(() => {
+            //     window.location.href = "iDev HM Black.png"
+            // }, 3000);
         }
     }
 }
@@ -144,15 +288,26 @@ eyee.addEventListener("click", (ev)=>{
 })
 function log(ev) {
     ev.preventDefault();
+    let found = occ_arr.find(where=> where.Occ_email == gmail.value && where.Occ_password == pass.value)
     if (gmail.value == "" || pass.value == "") {
         pp.style.display = "block"
+        faa.style.color = "white"
         pp.style.backgroundColor = "red"
         pp.innerHTML = "Input fields cannot be left empty"
         return;
-    } else {
-        
+    } else if(!found) {
+        pp.style.display = "block"
+        faa.style.color = "white"
+        pp.style.backgroundColor = "red"
+        pp.innerHTML = `User not found!! Do you want to Login as an agent? &nbsp <button onclick="alogin(event)" class="btn text-light">Ok</button>`
+    } else if (found) {
+        pp.style.display = "block"
+        faa.style.color = "white"
+        pp.style.backgroundColor = "green"
+        pp.innerHTML = "Login Successful"
     }
 }
+// TOGGLE LOGIN AND SIGNUP FORM
 function sign(ev) {
     ev.preventDefault();
     login.style.display = "none"
@@ -162,4 +317,87 @@ function log_in(ev) {
     ev.preventDefault();
     login.style.display = "flex"
     signup.style.display = "none"
+}
+
+// AGENT SUBMIT BUTTON FOR SIGNUP
+function sbmit(ev){
+    ev.preventDefault()
+    if (aname.value == "" || agmail.value == "" || apassword.value == "" || ac_password.value == "") {
+        ppp.style.display = "block"
+        ppp.style.backgroundColor = "red"
+        ppp.innerHTML = "Input fields cannot be left empty"
+        faaa.style.color = "white"
+        return;
+    } else {
+        if (apassword.value != ac_password.value) {
+            ppp.style.display = "block"
+            ppp.style.backgroundColor = "red"
+            ppp.innerHTML = "Fill the same password"
+            faaa.style.color = "white"
+            return; 
+        } else {
+            let agents = {
+                agentname : aname.value,
+                agentmail : agmail.value,
+                agentcountry : a_country.value,
+                agentstate : a_state.value,
+                agentcity : a_city.value,
+                agentaddress : a_address.value,
+                agentpassword : apassword.value,
+            }
+            if (agents_arr == null) {
+                let agents_arr = []
+                agents_arr.push(agents)
+                localStorage.setItem("Agents", JSON.stringify(agents_arr))
+            } else {
+                let find = agents_arr.find(where=> where.agentmail == agents.agentmail)
+                if (find) {
+                    ppp.style.display = "block"
+                ppp.style.backgroundColor = "red"
+                ppp.innerHTML = "The email address has already been used"
+                faaa.style.color = "white"
+                return;
+                } else {
+                    ppp.style.display = "block"
+                ppp.style.backgroundColor = "green"
+                ppp.innerHTML = "Successful! You're now an Admin"
+                faaa.style.color = "white"
+                exist.innerHTML = `Continue to &nbsp;<button onclick="agsign(event)" class="h5">Log In</button>`
+                }
+            }
+        }
+    }
+}
+function alog(ev){
+    ev.preventDefault();
+    if (amail.value == "" || apass.value == "") {
+        pppp.style.display = "block"
+        pppp.style.backgroundColor = "red"
+        pppp.innerHTML = "Input fields cannot be left empty"
+        faaaa.style.color = "white"
+        console.log("empty inputs");
+        return;
+    } else{
+        let find = agents_arr.find(where=> where.agentmail == amail.value && where.agentpassword == apass.value)
+        if (find){
+            pppp.style.display = "block"
+            pppp.style.backgroundColor = "green"
+            pppp.innerHTML = "Log In Successful"
+            faaaa.style.color = "white"
+            return
+        } else {
+            pppp.style.display = "block"
+            pppp.style.backgroundColor = "red"
+            pppp.innerHTML = `User not found!! Do you want to Login as a tenant? &nbsp <button onclick="tologin(event)" class="btn text-light">Ok</button>`
+            faaaa.style.color = "white"
+        }
+    }
+}
+function tologin(ev){
+    ev.preventDefault();
+    startt(ev)
+}
+function alogin(ev){
+    ev.preventDefault();
+    launch(ev)
 }
