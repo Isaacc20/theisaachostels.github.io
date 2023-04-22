@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
 }
-main{
-    background-color: aliceblue;
+.body{
+    background-color: white;
+    z-index: 1;
 }
 #topn{
-    background-color: brown;
+    background-color: rgb(30, 47, 47);
     position: fixed;
     top: 0;
     right: 0;
@@ -18,72 +19,75 @@ main{
     font-weight: 400;
     white-space: nowrap;
     border: none;
+    border-bottom: 2px solid transparent;
 }
 .top .btn:hover{
     /* background-color: bisque; */
-    color: cadetblue;
+    border-bottom: 2px solid orange;
+}
+.top .more:hover{
+    border: none;
 }
 .top .stats .stat{
-    border-top: 3px solid brown;
+    position: absolute;
+    width: 10%;
+    border-top: 14px solid rgb(33, 37, 41);
     display: none;
-}
-.top .stats .stat .btns{
-    color: brown;
-}
-.top .stats .stat .btns:hover{
-    color: cadetblue;
 }
 .top .stats:hover .stat{
     display: flex;
 }
-.top .sign{
+/* .top .sign{
     color: orange;
-}
+} */
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* z-index: -1; */
+  }
+  .font{
+    font-family: serif;
+    font-size: xx-large;
+  }
 #landd{
-    background-image: url(oh-1.jpg);
+    /* background-image: url(ezgif.com-webp-to-png.png); */
     background-size: cover;
+    position: relative;
     width: 100%;
     height: 100vh;
     background-position: center;
 }
 .land{
     padding-inline: 100px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.562);
     height: 100%;
     width: 100%;
     /* backdrop-filter: blur(2px); */
 }
+.start{
+    /* background-color: brown; */
+    transition: all ease-in-out 0.5s;
+    border: 1px solid;
+}
 .dev{
-    font-size: 80px;
-    width: 20%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    /* text-shadow: 0px 0px 2px gray; */
+    font-size: 50px;
+    /* width: 20%; */
+    /* font-weight: 600;
+    text-shadow: 0px 0px 2px gray; */
     /* text-shadow: 0px 0px 4px black; */
 }
-.start{
-    background-color: brown;
-    border: none;
-    transition: all ease-in-out 0.5s;
-}
-.startt{
-    color: grey;
-    border: none;
-    background-color: transparent;
-}
-.start button:hover{
-    background-color: transparent;
-    border: 2px dashed red;
-}
 
-#landd #img, #imgg{
+/* #landd #img, #imgg{
     position: absolute;
     right: 10%;
     z-index: 1;
     box-shadow: 2px 2px 8px black;
     border-right: 5px solid brown;
     border-radius: 0px 5px 5px 0px;
-}
+} */
 #dev, #devs{
     transform: skewX(45deg);
     font-size: 60px;
@@ -121,6 +125,7 @@ main{
 .bout{
     white-space: nowrap;
     color: orange;
+    font-family: serif;
 }
 .boutT{
     white-space: nowrap;
@@ -137,10 +142,27 @@ main{
     background-color: brown;
     transform: skewY(-10deg);
 } */
+.home{
+    padding-block: 40px;
+}
+.imgs::-webkit-scrollbar{
+    height: 0px;
+}
 #imgs{
     scroll-behavior: smooth;
-    margin-top: 50%;
+    margin-top: 40%;
     transition: margin-top ease-in-out 2s;
+}
+.each{
+    width: 25vw;
+    min-width: 250px;
+}
+.each img{
+    width: 100%;
+    height: 60%;
+}
+#imgs h6{
+    line-height: 1.5;
 }
 /* image{
     display: flex;
@@ -157,22 +179,25 @@ main{
   .offer-box {
     width: 23%;
     min-width: 250px;
-    padding: 20px;
     border-radius: 5px;
-    border: 1px solid brown;
+    box-shadow: 0px 0px 6px #555;
     background-color: white;
-  }
-  
-  .offer-box .imag{
-    width: 100%;
-    overflow: hidden;
-  }
-  .offer-box .imag img{
-    width: 100%;
     transition: all ease-in-out 0.5s;
   }
+
+  .offer-box:hover{
+    transform: translateY(-1.2%);
+    box-shadow: 0px 7px 7px #555;
+  }
+  
+  .offer-box img{
+    width: 100%;
+    height: 50%;
+    border-radius: 5px 5px 0px 0px;
+    /* transition: all ease-in-out 0.5s;
+  }
   .offer-box .imag:hover img{
-    transform: scale(1.1);
+    transform: scale(1.1); */
   }
   
   .offer-title {
@@ -190,15 +215,20 @@ main{
   .bord button{
     width: fit-content;
     white-space: nowrap;
-    border: 2px solid brown;
-    background-color: brown;
+    border: 2px solid cadetblue;
+    background-color: cadetblue;
   }
   .bord .starttt{
-    color: brown;
+    color: cadetblue;
   }
   #clients{
+    scroll-behavior: smooth;
     margin-left: -100%;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 1s;
+  }
+  #person{
+    transform: scale(40%);
+    transition: all ease-in-out 1s;
   }
   .person{
     min-height: 300px;
@@ -208,7 +238,10 @@ main{
     min-width: 250px;
   }
   .person h3{
-    color: brown;
+    color: cadetblue;
+  }
+  .person h6{
+    line-height: 1.5;
   }
   .person a{
     color: aliceblue;
@@ -216,10 +249,10 @@ main{
     transition: all ease-in-out 0.3s;
   }
   .person a:hover{
-    background-color: white;
-    color: cadetblue;
+    background-color: goldenrod;
+    color: white;
     transform: translateY(-4%);
-    border-left: 1px solid orange;
+    /* border-left: 1px solid orange; */
     box-shadow: 0px 2px 8px black;
   }
   .person .details{
@@ -280,12 +313,17 @@ main{
 #form form .inp{
     outline: none;
     border: none;
-    border-bottom: 1px solid black;
+    box-shadow: 0px 0px 2px black;
     transition: all ease-in-out 0.2s;
 }
-#form form .inp:hover, #form form .inp:focus-within{
-    /* border-inline: 1px solid orange; */
-    /* box-shadow: 0px 7px 7px grey; */
+#form form .inp:focus-within{
+    border: none;
+    border-bottom: 1px solid black;
+    box-shadow: 0px 4px 7px grey;
+}
+#form form .inp:hover{
+    transform: translateY(-4%);
+    box-shadow: 0px 4px 7px grey;
 }
 .add{
     border: none;
@@ -313,4 +351,28 @@ main{
 }
 #form form .over #two, #form form .over #three{
     margin-right: -100%;
+}
+
+#footer{
+    height: 60vh;
+    background-color: rgb(30, 47, 47);
+}
+div .foot a{
+    color: aliceblue;
+    transition: all ease-in-out 0.3s;
+}
+.foot a:hover{
+    color: goldenrod;
+}
+.media a{
+    color: goldenrod;
+    transition: all ease-in-out 0.3s;
+}
+.media a:hover{
+    color: cadetblue;
+}
+@media (max-width: 770px) {
+    .bot{
+        width: 100%;
+    }
 }

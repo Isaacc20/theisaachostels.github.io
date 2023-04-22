@@ -9,9 +9,12 @@ let imgs = document.getElementById("imgs")
 let land = document.getElementById("land")
 let client = document.getElementById("client")
 let clients = document.getElementById("clients")
+let clients1 = document.getElementById("clients1")
+let clients2 = document.getElementById("clients2")
+let clients3 = document.getElementById("clients3")
 let form = document.getElementById("form")
 let login = document.getElementById("login")
-let loggin = document.getElementById("loggin")
+let person = document.getElementById("person")
 let agentlog = document.getElementById("agentlog")
 let signup = document.getElementById("signup")
 let agentsign = document.getElementById("agentsign")
@@ -32,7 +35,9 @@ let pp = document.getElementById("pp")
 let ppp = document.getElementById("ppp")
 let pppp = document.getElementById("pppp")
 let nam = document.getElementById("name")
+let lnam = document.getElementById("lname")
 let aname = document.getElementById("aname")
+let laname = document.getElementById("laname")
 let email = document.getElementById("email")
 let agmail = document.getElementById("agmail")
 let amail = document.getElementById("amail")
@@ -56,14 +61,29 @@ let occ_arr = JSON.parse(localStorage.getItem("Occupants"))
 let agents_arr = JSON.parse(localStorage.getItem("Agents"))
 
 // ANIMATIONS
-window.onscroll = function () { scroll() };
+window.onscroll = function () { scroll(), scrolls() };
 function scroll(){
-    imgs.style.marginTop = "7%";
-    if (document.documentElement.scrollTop > 2000) {
+    imgs.style.marginTop = "0%";
+    if (document.documentElement.scrollTop > 1000) {
         clients.style.marginLeft = '0px';
+        clients1.style.marginLeft = '0px';
+        clients2.style.marginLeft = '0px';
+        clients3.style.marginLeft = '0px';
+        person.style.transform = 'scale(100%)';
     } else {
-    clients.style.marginLeft = '-100px';
-  }
+    clients.style.marginLeft = '-100%';
+    clients1.style.marginLeft = '-100%';
+    clients2.style.marginLeft = '-100%';
+    clients3.style.marginLeft = '-100%';
+    person.style.marginLeft = 'scale(40%)';
+}
+}
+function scrolls(){
+    if (document.documentElement.scrollTop > 1800) {
+        person.style.transform = 'scale(100%)';
+    } else {
+    person.style.transform = 'scale(40%)';
+}
 }
 // function scrollFunction() {
 // }
@@ -74,20 +94,20 @@ function scroll(){
 // GET STARTED/SIGN UP/LOGIN BUTTON
 function start() {
     form.style.display = 'flex'
-    login.style.display = "none"
+    login.style.display = "flex"
     agentsign.style.display = "none"
     agentlog.style.display = "none"
-    signup.style.display = "flex"
+    signup.style.display = "none"
 }
-loggin.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    startt(ev)
-})
-function startt(ev){
+// loggin.addEventListener("click", (ev)=>{
+//     ev.preventDefault();
+//     startt(ev)
+// })
+function get(ev){
     ev.preventDefault()
     form.style.display = 'flex'
-    login.style.display = "flex"
-    signup.style.display = "none"
+    login.style.display = "none"
+    signup.style.display = "flex"
     agentsign.style.display = "none"
     agentlog.style.display = "none"
 }
@@ -139,13 +159,13 @@ function prevv(ev){
     three.style.transition = "all ease-in-out 0.3s"
 }
 // FORMS
-function get(ev) {
+function startt(ev) {
     ev.preventDefault()
-    start()
+    start(ev)
 }
-function get1() {
-    start()
-}
+// function get1() {
+//     start()
+// }
 
 // FORM BACK ARROW BUTTON
 fa.addEventListener("click", (ev)=>{
@@ -226,15 +246,16 @@ eyeeee.addEventListener("click", (ev)=>{
 // SIGNUP SUBMIT BUTTON
 function create(ev) {
     ev.preventDefault();
-    if (nam.value == "" || email.value == "" || password.value == "" || c_password.value == "") {
+    if (nam.value == "" || lnam.value == "" || email.value == "" || password.value == "" || c_password.value == "") {
         p.style.display = "block"
         p.style.backgroundColor = "red"
-        p.innerHTML = "Input fields cannot be left empty"
+        p.innerHTML = "Input fields cannot be empty"
         fa.style.color = 'white'
         return;
     } else {
         let occ_details = {
-            Occ_name: nam.value,
+            Occ_firstname: nam.value,
+            Occ_lastname: lnam.value,
             Occ_email: email.value,
             Occ_password:password.value
         }
@@ -293,18 +314,24 @@ function log(ev) {
         pp.style.display = "block"
         faa.style.color = "white"
         pp.style.backgroundColor = "red"
-        pp.innerHTML = "Input fields cannot be left empty"
+        pp.innerHTML = "Input fields cannot be empty"
         return;
     } else if(!found) {
         pp.style.display = "block"
         faa.style.color = "white"
         pp.style.backgroundColor = "red"
         pp.innerHTML = `User not found!! Do you want to Login as an agent? &nbsp <button onclick="alogin(event)" class="btn text-light">Ok</button>`
+        return;
     } else if (found) {
         pp.style.display = "block"
         faa.style.color = "white"
         pp.style.backgroundColor = "green"
         pp.innerHTML = "Login Successful"
+        console.log(found);
+        setTimeout(() => {
+            window.location.href = "dashboard.html"
+            localStorage.setItem("c_user", JSON.stringify(found))
+        }, 3000);
     }
 }
 // TOGGLE LOGIN AND SIGNUP FORM
@@ -325,7 +352,7 @@ function sbmit(ev){
     if (aname.value == "" || agmail.value == "" || apassword.value == "" || ac_password.value == "") {
         ppp.style.display = "block"
         ppp.style.backgroundColor = "red"
-        ppp.innerHTML = "Input fields cannot be left empty"
+        ppp.innerHTML = "Input fields cannot be empty"
         faaa.style.color = "white"
         return;
     } else {
@@ -337,7 +364,8 @@ function sbmit(ev){
             return; 
         } else {
             let agents = {
-                agentname : aname.value,
+                agentfirstname : aname.value,
+                agentlastname : laname.value,
                 agentmail : agmail.value,
                 agentcountry : a_country.value,
                 agentstate : a_state.value,
@@ -373,7 +401,7 @@ function alog(ev){
     if (amail.value == "" || apass.value == "") {
         pppp.style.display = "block"
         pppp.style.backgroundColor = "red"
-        pppp.innerHTML = "Input fields cannot be left empty"
+        pppp.innerHTML = "Input fields cannot be empty"
         faaaa.style.color = "white"
         console.log("empty inputs");
         return;

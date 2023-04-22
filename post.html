@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Icofont/fontawesome-free-6.2.1-web/css/all.css">
+    <link rel="stylesheet" href="post.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div id="topn" class="top w-100 d-flex align-items-center justify-content-between bg-dark py-1 px-4">
+            <a href="" class="" ><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
+            <div class="div d-flex align-items-center justify-content-around mx-5 px-3 w-50">
+                <a href="#landd" class="btn rounded-0">Home</a>
+                <a onclick="rooms(event)" class="btn rounded-0 get">Rooms</a>
+                <a class="btn rounded-0 get">Cafe</a>
+                <a class="btn rounded-0 get">More <i class="fa fa-chevron-down"></i></a>
+                <!-- <button id="loggin" class="btn sign">Log in</button> -->
+            </div>
+            <ul class="div d-flex justify-content-around align-items-center w-50">
+                <li><button class="bg-transparent"><i class="fa-regular fa-star text-warning"></i>Wishlist</button></li>
+                <li><button class="bg-transparent"><i class="fa fa-cart-flatbed text-warning"></i>Cart</button></li>
+                <li><button class="bg-transparent text-start sign">Inbox</button></li>
+                <li class="stats position-relative d-flex flex-column justify-content-end align-items-end">
+                    <button id="pro" class=" rounded-5 bg-black get" onclick="get()"><img src="My avatar.png" class="rounded-5" width="40vw" alt=""></button>
+                    <div class="stat rounded-1 gap-1 p-1">
+                        <button class="bg-transparent p-1 my-1 text-start" onclick="get1()">Profile</button>
+                        <button class="bg-transparent p-1 my-1 text-start" onclick="get2()">Account</button>
+                        <button class="bg-transparent p-1 my-1 text-start" onclick="get2()">Orders</button>
+                        <button class="bg-transparent p-1 my-1 text-start" onclick="get2()">History</button>
+                        <button class="bg-transparent p-1 my-1 text-warning text-start" onclick="get2()">LOGOUT</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="body">
+                <video autoplay muted loop id="myVideo">
+                    <source src="stock-footage-person-typing-on-a-laptop-in-a-bright-room.webm" type="video/webm">
+                </video>
+            <div class="land">
+                <h1>Share Your Hostel with the World</h1>
+            </div>
+            <div class="hostels">
+                <h2>You don't have any hostel available</h2>
+            </div>
+            <div class="spot">
+                <h4 class="fs-1 display-6">Put Your Hostel in the Spotlight</h4>
+            </div>
+            <form action="">
+                <input type="text" name="" id="name">
+                <input type="file" name="" id="pics" multiple>
+                <input type="text" name="" id="description">
+                <input type="text" name="" id="location">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script src="post.js"></script>
