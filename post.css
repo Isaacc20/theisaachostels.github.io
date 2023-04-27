@@ -152,3 +152,7 @@ body{
 .each img:hover{
     transform: scale(103%);
 }
+.rm{
+    border: none;
+    background-color: cadetblue;
+}

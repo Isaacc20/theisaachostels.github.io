@@ -27,16 +27,16 @@ let hlocation = document.getElementById("hlocation")
 // let s_highest = document.getElementById("s_highest")
 // let d_highest = document.getElementById("d_highest")
 // let p_highest = document.getElementById("p_highest")
-let save = document.getElementById("sn")
-let reader = new FileReader();
+// let save = document.getElementById("sn")
+// let reader = new FileReader();
 // let reader1 = new FileReader();
 // let reader2 = new FileReader();
 // let reader3 = new FileReader();
-let myFile = document.getElementById("myFile")
+// let myFile = document.getElementById("myFile")
 // let image = document.getElementById("image")
 let amen = document.getElementById("amen")
 let amenity = []
-let avail = document.getElementById("avail")
+// let avail = document.getElementById("avail")
 let rooms = []
 
 hname.addEventListener("input", ()=>{
@@ -118,17 +118,47 @@ description.addEventListener("input", ()=>{
 // private.addEventListener("scroll", ()=>{
 //     return;
 // })
-    function chooseImage(){
-        let data = myFile.files[0];
-        console.log(data);
-        reader.addEventListener("load", function(){
-            console.log(reader.result);
-        document.getElementById("image").src = reader.result
-        })
-        if(data) {
-            reader.readAsDataURL(data)
-        }   
+
+    // function chooseImage(){
+    //     let data = myFile.files[0];
+    //     console.log(data);
+    //     reader.addEventListener("load", function(){
+    //         console.log(reader.result);
+    //     document.getElementById("image").src = reader.result
+    //     })
+    //     if(data) {
+    //         reader.readAsDataURL(data)
+    //     }   
+    // }
+
+
+  const imageInput = document.getElementById('imageInput');
+  const imageUrls = [];
+
+  imageInput.addEventListener('change', (event) => {
+    const files = event.target.files;
+    
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader();
+
+        reader.readAsDataURL(files[i]);
+      reader.onload = (event) => {
+        const imageUrl = event.target.result;
+        imageUrls.push(imageUrl);
+        const url = reader.result;
+        imageUrls.push(url);
+        console.log(url);
+      for (let i = 0; i < imageUrls.length; i++) {
+        document.querySelector("#imgs").innerHTML = ""
+        document.querySelector("#imgs").innerHTML += `
+        <img src="${imageUrls[i]}" width="300px" height="200px" alt="">
+        `
+      }
+      };
     }
+  });
+
+
     // pic2.addEventListener("change", ()=>{
     //     let data = pic2.files[0];
     //     console.log(data);
@@ -195,29 +225,247 @@ description.addEventListener("input", ()=>{
         });
         
     })
-    let types = document.querySelectorAll("#single, #double, #self")
+
+    let room_n = document.querySelectorAll("#single_r, #double_r, #self_r")
+    room_n.forEach(el => {
+        el.addEventListener("input", (e)=>{
+            e.preventDefault()
+            console.log(el.id);
+            let cr = e.target.parentElement.firstElementChild
+            if (el.id == "single_r") {
+                if (document.querySelector('.single').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#soa').innerHTML = `Single: ${cr.value} rooms`
+                        document.querySelector('#s_rooms').innerHTML = ""
+                        for (let i = 1; i <= cr.value; i++) {
+                        // const element = array[i];
+                        document.querySelector('#s_rooms').innerHTML += `
+                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                        `
+                    }
+                }
+            } else if (el.id == "double_r") {
+                if (document.querySelector('.double').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#doa').innerHTML = `Double: ${cr.value} rooms`
+                    document.querySelector('#d_rooms').innerHTML = ""
+                        for (let i = 1; i <= cr.value; i++) {
+                        // const element = array[i];
+                        document.querySelector('#d_rooms').innerHTML += `
+                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                        `
+                }
+                }
+            }
+            if (el.id == "self_r") {
+                if (document.querySelector('.self').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#scr').innerHTML = `Self con.: ${cr.value} rooms`
+                    document.querySelector('#sc_rooms').innerHTML = ""
+                        for (let i = 1; i <= cr.value; i++) {
+                        // const element = array[i];
+                        document.querySelector('#sc_rooms').innerHTML += `
+                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                        `
+                }
+            } 
+        }
+    })
+    });
+
+    let room_p = document.querySelectorAll("#single_m, #double_m, #self_m")
+    room_p.forEach(el => {
+        el.addEventListener("input", (e)=>{
+            e.preventDefault()
+            console.log(el.id);
+            let cr = e.target.parentElement.lastElementChild
+            if (el.id == "single_m") {
+                if (document.querySelector('.single').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#som').innerHTML = `Single occupancy room: ₦${cr.value}`
+                }
+            } else if (el.id == "double_m") {
+                if (document.querySelector('.double').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#dom').innerHTML = `Double occupancy room: ₦${cr.value}`
+                }
+            } if (el.id == "self_m") {
+                if (document.querySelector('.self').checked == false) {
+                    alert("Make this accomodation type available first")
+                    cr.value = "";
+                    console.log(cr.value);
+                    return;
+                } else {
+                    document.querySelector('#scm').innerHTML = `Self contained apartment: ₦${cr.value}`
+                }
+            } 
+        })
+    });
+    let types = document.querySelectorAll(".single, .double, .self")
     types.forEach((el)=>{
+        // el.addEventListener("click", (e)=>{
+        //     console.log(el.checked);
+        // })
         let tagg = el.parentElement.innerText
         console.log(tagg);
         if (el.checked == true) {
             rooms.push(tagg)
-            avail.innerHTML += `<li class="fs-6 font">${tagg}</li>`
+            // avail.innerHTML += `<li class="fs-6 font">${tagg}</li>`
         } else {
             let found = rooms.findIndex(where=>where == tagg)
             rooms.splice(found, 1)
         }
-        el.addEventListener("click", (e)=>{
+        el.addEventListener("change", (e)=>{
             let tag = e.target.parentElement.innerText
             if (el.checked == true) {
                 rooms.push(tag)
-                avail.innerHTML += `<li class="fs-6 font">${tag}</li>`
+                // avail.innerHTML += `<li class="fs-6 font">${tag}</li>`
+                // if (el.className == "form-check-input single") {
+                //     room_n[0].style.disabled = false
+                // } else {
+                //     room_n[0].disabled = true
+                // }
+                // if (el.className == "form-check-input double") {
+                //     room_n[1].style.disabled = false
+                // } else {
+                //     room_n[1].disabled = true
+                // }
+                // if (el.className == "form-check-input self") {
+                //     room_n[2].style.disabled = false
+                // } else {
+                //     room_n[2].disabled = true
+                // }
             } else {
-                let found = rooms.find(where=>where == tag)
-                rooms.slice(found)
+                let found = rooms.findIndex(where=>where == tag)
+                rooms.splice(found, 1)
+                if (rooms.length == 0) {
+                    // avail.innerHTML = ""
+                } else {
+                    // avail.innerHTML = ""
+                    for (let i = 0; i < rooms.length; i++) {
+                        // avail.innerHTML += `<li class="fs-6 font">${rooms[i]}</li>`
+                    }
+                }
             }
+            
             console.log(rooms);
         })
     })
+
+    // let prices = document.querySelectorAll("#som, #dom, #scm")
+    // prices.forEach((el)=>{
+    //     el.addEventListener
+    // })
+
+//     let types = document.querySelectorAll(".single, .double, .self");
+// let room_n = document.querySelectorAll("#single_r, #double_r, #self_r");
+// room_n.forEach(el => {
+//     el.disabled = true;
+// });
+// types.forEach((el)=>{
+//     let tagg = el.parentElement.innerText;
+//     console.log(tagg);
+//     if (el.checked == true) {
+//         rooms.push(tagg);
+//         avail.innerHTML += `<li class="fs-6 font">${tagg}</li>`;
+//     } else {
+//         let found = rooms.findIndex(where=>where == tagg);
+//         rooms.splice(found, 1);
+//     }
+//     el.addEventListener("change", (e)=>{
+//         let tag = e.target.parentElement.innerText;
+//         if (el.checked == true) {
+//             rooms.push(tag);
+//             avail.innerHTML += `<li class="fs-6 font">${tag}</li>`;
+//             if (el.classList.contains("single")) {
+//                 // Use el instead of room_n[0] to enable/disable the corresponding room number input
+//                 el.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.lastElementChild.firstElementChild.disabled = false;
+//             } else {
+//                 el.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.lastElementChild.firstElementChild.disabled = true;
+//             }
+//             // if (el.classList.contains("double")) {
+//             //     el.parentElement.nextElementSibling.nextElementSibling.disabled = false;
+//             // } else {
+//             //     el.parentElement.nextElementSibling.nextElementSibling.disabled = true;
+//             // }
+//             // if (el.classList.contains("self")) {
+//             //     el.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;
+//             // } else {
+//             //     el.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
+//             // }
+//         } else {
+//             let found = rooms.findIndex(where=>where == tag);
+//             rooms.splice(found, 1);
+//             if (rooms.length == 0) {
+//                 avail.innerHTML = "";
+//             } else {
+//                 avail.innerHTML = "";
+//                 for (let i = 0; i < rooms.length; i++) {
+//                     avail.innerHTML += `<li class="fs-6 font">${rooms[i]}</li>`;
+//                 }
+//             }
+//         }
+//         console.log(rooms);
+//     })
+// })
+
+// const types = document.querySelectorAll('.single, .double, .self');
+// const room_n = document.querySelectorAll('#single_r, #double_r, #self_r');
+// // const avail = document.querySelector('#available');
+
+// types.forEach((type) => {
+//   type.addEventListener('change', (event) => {
+//     const tag = event.target.parentElement.innerText;
+
+//     if (event.target.checked) {
+//       rooms.push(tag);
+//       avail.innerHTML += `<li class="fs-6 font">${tag}</li>`;
+//     } else {
+//       const found = rooms.findIndex((room) => room === tag);
+//       rooms.splice(found, 1);
+//       avail.innerHTML = rooms.map((room) => `<li class="fs-6 font">${room}</li>`).join('');
+//     }
+
+//     room_n.forEach((room) => {
+//       room.disabled = true;
+//     });
+
+//     if (document.querySelector('.single').checked) {
+//       room_n[0].disabled = false;
+//     }
+
+//     if (document.querySelector('.double').checked) {
+//       room_n[1].disabled = false;
+//     }
+
+//     if (document.querySelector('.self').checked) {
+//       room_n[2].disabled = false;
+//     }
+//   });
+// });
+
+
+
     let inpts = document.querySelectorAll("#s_n, #d_n, #sc_n, #single, #double, #contain")
     inpts.forEach((el)=>{
         el.addEventListener("wheel", (e)=>{
@@ -230,17 +478,17 @@ description.addEventListener("input", ()=>{
             e.preventDefault();
         })
     })
-save.addEventListener("click", (e)=>{
-    e.preventDefault()
+// save.addEventListener("click", (e)=>{
+//     e.preventDefault()
     // let nos = []
     // nos.push(s_least.value, d_least.value)
     // let nulls = nos.find((where)=>where === null || where === undefined || where === "")
     // // nos.slice(nulls)
     // console.log(nulls);
     // console.log(nos);
-    if (s_least.value == undefined && d_least.value == undefined) {
-        save.disabled = true
-    } else {
+//     if (s_least.value == undefined && d_least.value == undefined) {
+//         save.disabled = true
+//     } else {
         
-    }
-})
+//     }
+// })

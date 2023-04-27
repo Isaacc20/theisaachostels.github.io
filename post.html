@@ -14,7 +14,7 @@
         <div id="topn" class="top w-100 d-flex align-items-center justify-content-between bg-dark py-1 px-4">
             <a href="" class="" ><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
             <div class="div d-flex align-items-center justify-content-around mx-5 px-3 w-50">
-                <a href="#landd" class="btn rounded-0">Home</a>
+                <a class="btn rounded-0">Home</a>
                 <a onclick="rooms(event)" class="btn rounded-0 get">Rooms</a>
                 <a class="btn rounded-0 get">Cafe</a>
                 <a class="btn rounded-0 get">More <i class="fa fa-chevron-down"></i></a>
@@ -111,15 +111,24 @@
                         <div>
                             <h6 class="fs-5 p">Available room types</h6>
                             <div class="d-flex flex-column align-items-start justify-content-around">
-                                <label for="single">
-                                    <input class="mx-1" type="checkbox" name="" id="single">Single occupancy room
-                                </label>
-                                <label for="double">
-                                    <input class="mx-1" type="checkbox" name="" id="double">Double occupancy rooms
-                                </label>
-                                <label for="self">
-                                    <input class="mx-1" type="checkbox" name="" id="self">Self-cotained apartment
-                                </label>
+                                <div class="form-check form-switch">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input single" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                        Single occupancy room
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input double" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                        Double occupancy room
+                                    </label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input self" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                        Self contained apartment
+                                    </label>
+                                  </div>
                             </div>
                         </div>
                         <div id="two" class="w-100">
@@ -142,8 +151,9 @@
                         <div id="three" class="w-100">
                             <h6 class="fs-5 p">You'll need some pictures</h6>
                             <div class="d-flex align-items-start gap-3 my-3">
-                                <label for="myFile" class="inp px-3 py-2 pt-3 w-100 rounded-3 position-relative">Select active
-                                    <input name="" onchange="chooseImage(event)" class="des w-100 h-100" id="myFile" type="file" placeholder="" required>
+                                <label for="imageInput" class="inp px-3 py-2 pt-3 w-25 rounded-3 position-relative">Select active
+                                    <!-- <input name="" onchange="chooseImage(event)" class="des w-100 h-100" id="myFile" type="file" placeholder="" required> -->
+                                    <input  class="des w-100 h-100" type="file" id="imageInput" multiple required>
                                 </label>
                                 <!-- <label for="pic2" class="inp px-3 py-2 pt-3 w-100 rounded-3 position-relative">Select
                                     <input name="" class="des w-100 h-100" id="pic2" type="file" placeholder="" required>
@@ -162,9 +172,9 @@
                                 <div>
                                     <h6>Number of rooms in:</h6>
                                     <div class="d-flex flex-wrap align-items-end">
-                                        <label class="d-flex flex-column align-items-start" for="">Single occupancy <input id="s_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
-                                        <label class="d-flex flex-column align-items-start" for="">Double occupancy <input id="d_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
-                                        <label class="d-flex flex-column align-items-start" for="">Self contain<input id="sc_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
+                                        <label class="d-flex flex-column align-items-start" id="single_r" for="">Single occupancy <input id="s_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
+                                        <label class="d-flex flex-column align-items-start" id="double_r" for="">Double occupancy <input id="d_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
+                                        <label class="d-flex flex-column align-items-start" id="self_r" for="">Self contain<input id="sc_n" type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
                                     </div>
                                 </div>
                                 <!-- <div>
@@ -175,7 +185,7 @@
                                         <label id="p_highest" class="d-flex flex-column align-items-start" for="">Private apartment <input type="number" min="0" class="w-50 inp hide px-3 py-2 rounded-3"></label>
                                     </div>
                                 </div> -->
-                                <button id="sn" class="h6 na py-2 bg-white rounded-3">Save numbers</button>
+                                <!-- <button id="sn" class="h6 na py-2 bg-white rounded-3">Save numbers</button> -->
                             </div>
                         </div>
                         <div id="four">
@@ -189,7 +199,7 @@
                                 <!-- <button id="nad" class="h6 na px-3 py-2 pt-3 bg-white mx-3 rounded-3">N/A</button> -->
                             </div>
                             <div class="d-flex align-items-end">
-                                <label for="contain" class="fs-5">Self contain: <small class="small fs-6"></small><input type="number" min="0" class="w-100 inp hide px-3 py-2 pt-3 rounded-3" id="contain" placeholder="In Naira(₦)"></label>
+                                <label for="contain" class="fs-5">Self contain: <small class="small fs-6"></small><input type="number" min="0" class="w-100 inp hide px-3 py-2 pt-3 rounded-3" id="self_m" placeholder="In Naira(₦)"></label>
                                 <!-- <button id="nap" class="h6 na px-3 py-2 pt-3 bg-white mx-3 rounded-3">N/A</button> -->
                             </div>
                         </div>
@@ -203,23 +213,33 @@
                     <h2 id="demo">Your demo will show here</h2>
                     <div class="d-flex flex-column align-items-start">
                         <div class="each d-flex flex-wrap align-items-stretch w-100 rounded-1 py-3">
-                            <div class="imgs d-flex flex-wrap w-50 gap-1">
-                                <img id="image" src="" width="40%" height="150px" alt="">
+                            <div id="imgs" class="imgs d-flex overflow-x-scroll w-100 gap-1">
+                                <!-- <img id="image" src="" width="40%" height="150px" alt="">
                                 <img id="himgs2" src="" width="40%" height="150px" alt="">
                                 <img id="himgs3" src="" width="40%" height="150px" alt="">
-                                <img id="himgs4" src="" width="40%" height="150px" alt="">
+                                <img id="himgs4" src="" width="40%" height="150px" alt=""> -->
                             </div>
                             <div>
                                 <!-- <span id="h_stat"></span><span id="h_stan"></span> -->
                                 <h3 id="h_name" class="text-center fs-1 h2 font"></h3>
                                 <h5 id="desc"></h5>
                                 <ol id="amen"></ol>
-                                <ul id="avail"></ul>
+                                <!-- <ul id="avail">
+
+                                </ul> -->
                                 <div class="d-flex"><h5 id="hcity"></h5><h5 id="hlocation"></h5></div>
                                 <div class="p-3">
+                                    <h6 id="som" class=""></h6>
+                                    <h6 id="dom" class=""></h6>
+                                    <h6 id="scm" class=""></h6>
+                                </div>
+                                <div class="p-3 w-100 px-5">
                                     <h6 id="soa" class=""></h6>
+                                    <div class="d-flex flex-wrap justify-content-between w-100 gap-2" id="s_rooms"></div>
                                     <h6 id="doa" class=""></h6>
-                                    <!-- <h6 id="pr" class=""></h6> -->
+                                    <div class="d-flex flex-wrap justify-content-between w-100 gap-2" id="s_rooms" id="d_rooms"></div>
+                                    <h6 id="scr" class=""></h6>
+                                    <div class="d-flex flex-wrap justify-content-between w-100 gap-2" id="s_rooms" id="sc_rooms"></div>
                                 </div>
                             </div>
                         </div>
