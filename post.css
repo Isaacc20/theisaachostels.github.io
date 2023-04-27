@@ -60,26 +60,95 @@ body{
     display: flex;
     flex-direction: column;
 }
-.land{
-    /*  */
+#myVideo {
+    position: absolute;
+    top: -50;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* z-index: -1; */
+  }
+  .font{
+    font-family: serif;
+    font-size: 70px;
+  }
+#landd{
+    /* background-image: url(ezgif.com-webp-to-png.png); */
     background-size: cover;
-    background-position: center;
-    /* position: relative; */
-    height: 100vh;
+    position: relative;
     width: 100%;
+    height: 100vh;
+    background-position: center;
+    overflow: hidden;
 }
-.land #myVideo{
+.search input{
+    border-radius: 40px 0px 0px 40px;
+    height: 4rem;
+    border: none;
+    outline: none;
+}
+.search button{
+    border-radius: 0px 40px 40px 0px;
+    background-color: orange;
+}
+.land{
+    padding-inline: 100px;
+    background-color: rgba(22, 20, 2, 0.674);
+    height: 100%;
+    width: 100%;
+    /* backdrop-filter: blur(2px); */
+}
+#post{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid orange;
+}
+.inp{
+    border: 1px solid orange;
+    outline: none;
+    box-shadow: 0px 0px 10px grey;
+}
+
+.hide::-webkit-outer-spin-button,
+.hide::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.des{
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-    height: 100vh;
-    width: 100%;
+    opacity: 0;
 }
-.spot{
-    background-image: url(laptop.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh; 
+#create{
+    width: 80%;
+}
+.na{
+    border: 1px solid cadetblue;
+    color: cadetblue;
+}
+.demo{
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+.each{
+    /* box-shadow: 0px 0px 4px grey; */
+    width: 100%;
+    min-width: 250px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px grey;
+}
+.each .imgs{
+    width: 100%;
+    overflow: hidden;
+}
+.each img{
+    min-width: 200px;
+    transition: all ease-in-out 0.3s;
+}
+.each img:hover{
+    transform: scale(103%);
 }
