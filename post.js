@@ -1,5 +1,5 @@
 let hname = document.getElementById("hname")
-// let single = document.getElementById("single")
+let pro = document.getElementById("pro")
 // let double = document.getElementById("double")
 // let self = document.getElementById("self")
 // let private = document.getElementById("private")
@@ -9,7 +9,7 @@ let hname = document.getElementById("hname")
 // let pic1 = document.getElementById("pic1")
 // let pic2 = document.getElementById("pic2")
 // let pic3 = document.getElementById("pic3")
-// let pic4 = document.getElementById("pic4")
+let logg = document.getElementById("log")
 let description = document.getElementById("description")
 let city = document.getElementById("city")
 let locate = document.getElementById("location")
@@ -38,6 +38,21 @@ let amen = document.getElementById("amen")
 let amenity = []
 // let avail = document.getElementById("avail")
 let rooms = []
+let c_user = JSON.parse(localStorage.getItem("c_user"))
+// let myhost = JSON.parse(localStorage.getItem("myhostel"))
+
+function logout(ev) {
+    ev.preventDefault();
+    if (log.innerHTML == "Log In") {
+        window.location.href = 'index.html';
+    } else {
+        localStorage.removeItem("c_user")
+        window.location.href = "index.html"
+        window.location.reload()
+    }
+    
+}
+
 
 hname.addEventListener("input", ()=>{
     h_name.innerHTML = hname.value
@@ -72,9 +87,9 @@ city.addEventListener("input", ()=>{
 locate.addEventListener("input", ()=>{
     hlocation.innerHTML = locate.value
 })
-description.addEventListener("input", ()=>{
-    desc.innerHTML = description.value
-})
+// description.addEventListener("input", ()=>{
+//     desc.innerHTML = description.value
+// })
 
 // function na(){
 //     let targ = event.target
@@ -131,32 +146,56 @@ description.addEventListener("input", ()=>{
     //     }   
     // }
 
+    const imageInput = document.getElementById('imageInput');
+    const imageUrls = [];
 
-  const imageInput = document.getElementById('imageInput');
-  const imageUrls = [];
-
-  imageInput.addEventListener('change', (event) => {
+    imageInput.addEventListener('change', (event) => {
     const files = event.target.files;
-    
+
     for (let i = 0; i < files.length; i++) {
-      const reader = new FileReader();
+        const reader = new FileReader();
 
         reader.readAsDataURL(files[i]);
-      reader.onload = (event) => {
-        const imageUrl = event.target.result;
+
+        reader.onload = () => {
+        const imageUrl = reader.result;
         imageUrls.push(imageUrl);
-        const url = reader.result;
-        imageUrls.push(url);
-        console.log(url);
-      for (let i = 0; i < imageUrls.length; i++) {
-        document.querySelector("#imgs").innerHTML = ""
-        document.querySelector("#imgs").innerHTML += `
-        <img src="${imageUrls[i]}" width="300px" height="200px" alt="">
-        `
-      }
-      };
+        document.querySelector("#imgs").innerHTML = "";
+        for (let i = 0; i < imageUrls.length; i++) {
+            document.querySelector("#imgs").innerHTML += `
+            <img src="${imageUrls[i]}" width="300px" height="200px" alt="">
+            `;
+        }
+        };
     }
-  });
+    });
+
+
+//   const imageInput = document.getElementById('imageInput');
+//   const imageUrls = [];
+
+//   imageInput.addEventListener('change', (event) => {
+//     const files = event.target.files;
+    
+//     for (let i = 0; i < files.length; i++) {
+//       const reader = new FileReader();
+
+//         reader.readAsDataURL(files[i]);
+//       reader.onload = (event) => {
+//         const imageUrl = event.target.result;
+//         imageUrls.push(imageUrl);
+//         const url = reader.result;
+//         imageUrls.push(url);
+//         console.log(url);
+//         document.querySelector("#imgs").innerHTML = ""
+//         for (let i = 0; i < imageUrls.length; i++) {
+//         document.querySelector("#imgs").innerHTML += `
+//         <img src="${imageUrls[i]}" width="300px" height="200px" alt="">
+//         `
+//       }
+//       };
+//     }
+//   });
 
 
     // pic2.addEventListener("change", ()=>{
@@ -226,6 +265,7 @@ description.addEventListener("input", ()=>{
         
     })
 
+    let room_b = document.querySelectorAll("#s_n, #d_n, #sc_n")
     let room_n = document.querySelectorAll("#single_r, #double_r, #self_r")
     room_n.forEach(el => {
         el.addEventListener("input", (e)=>{
@@ -244,12 +284,13 @@ description.addEventListener("input", ()=>{
                         for (let i = 1; i <= cr.value; i++) {
                         // const element = array[i];
                         document.querySelector('#s_rooms').innerHTML += `
-                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                            <button class="d-grid rounded-1 px-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
                         `
                     }
                 }
             } else if (el.id == "double_r") {
-                if (document.querySelector('.double').checked == false) {
+            let cr = e.target.parentElement.firstElementChild
+            if (document.querySelector('.double').checked == false) {
                     alert("Make this accomodation type available first")
                     cr.value = "";
                     console.log(cr.value);
@@ -260,7 +301,7 @@ description.addEventListener("input", ()=>{
                         for (let i = 1; i <= cr.value; i++) {
                         // const element = array[i];
                         document.querySelector('#d_rooms').innerHTML += `
-                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                            <button class="d-grid rounded-1 px-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
                         `
                 }
                 }
@@ -277,7 +318,7 @@ description.addEventListener("input", ()=>{
                         for (let i = 1; i <= cr.value; i++) {
                         // const element = array[i];
                         document.querySelector('#sc_rooms').innerHTML += `
-                            <button class="d-grid rounded-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
+                            <button class="d-grid rounded-1 px-1 text-light rm" onclick="select(${i})">${i}<i class="fa fa-bed"></i></button>
                         `
                 }
             } 
@@ -370,6 +411,11 @@ description.addEventListener("input", ()=>{
             
             console.log(rooms);
         })
+    })
+
+    let conts = document.querySelector("#contact")
+    conts.addEventListener("input", ()=>{
+        document.querySelector("#cont").innerHTML = conts.value
     })
 
     // let prices = document.querySelectorAll("#som, #dom, #scm")
@@ -472,12 +518,12 @@ description.addEventListener("input", ()=>{
             e.preventDefault();
         })
     })
-    let aparts = document.querySelectorAll("#single, #double, #self")
-    aparts.forEach((el)=>{
-        el.addEventListener("click", (e)=>{
-            e.preventDefault();
-        })
-    })
+    // let aparts = document.querySelectorAll("#single, #double, #self")
+    // aparts.forEach((el)=>{
+    //     el.addEventListener("click", (e)=>{
+    //         e.preventDefault();
+    //     })
+    // })
 // save.addEventListener("click", (e)=>{
 //     e.preventDefault()
     // let nos = []
@@ -492,3 +538,204 @@ description.addEventListener("input", ()=>{
         
 //     }
 // })
+let hostels = JSON.parse(localStorage.getItem("hostels"))
+let agent = JSON.parse(localStorage.getItem("Agents"))
+function post(e) {
+    if (hname.value == "" || description.value == "" || city.value == "" || locate.value == "" || imageInput.value == "" || (document.querySelector(".single").checked == false && document.querySelector(".double").checked == false && document.querySelector(".self").checked == false) || (document.getElementById("single_r").value == "" && document.getElementById("double_r").value == "" && document.getElementById("self_r").value == "") || (document.getElementById("single_m").value == "" && document.getElementById("double_m").value == "" && document.getElementById("self_m").value == "") || conts.value == "") {
+        alert("Input fields cannot be empty");
+        return;
+    } else {
+        alert("correct")
+        let post_room = {
+            hostelname : hname.value,
+            description : description.value,
+            city : city.value,
+            location : locate.value,
+            images : imageUrls,
+            utilities : amenity,
+            roomtypes : rooms,
+            roomnumbers : {single : room_b[0].value,
+                            double : room_b[1].value,
+                            self : room_b[2].value
+                        },
+            roomprices : {single : room_p[0].value,
+                            double : room_p[1].value,
+                            self : room_p[2].value
+                        },
+            agentcontact : conts.value,
+            agentmail : c_user.agentmail
+        }
+        if (hostels == null) {
+            hostels = [];
+            hostels.push(post_room);
+            localStorage.setItem("hostels", JSON.stringify(hostels))
+        } else {
+            hostels.push(post_room);
+            localStorage.setItem("hostels", JSON.stringify(hostels))
+        }
+        console.log(hostels);
+    }
+    window.location.reload()
+}
+//     let agentt = JSON.parse(localStorage.getItem(""))
+//     let agenthostel = hostels.find(where => where.agentmail == )
+// if (condition) {
+    
+// } else {
+    
+// }
+if (c_user == null){
+    pro.innerHTML = `<img src="My avatar.png" class="rounded-5" width="40vw" alt="">`
+    logg.innerHTML = "Log In"
+    pro.style.padding = "0px"
+    pro.style.borderRadius = "100%"
+    window.location.href = "index.html"
+} else{
+    let letter = c_user.Occ_firstname || c_user.Occ_name || c_user.agentname || c_user.agentfirstname
+    pro.innerHTML = letter.charAt(0)
+    pro.style.paddingBlock = "6px"
+    pro.style.paddingInline = "15px"
+
+    if (c_user.status === "agent") {
+        let possible = hostels.find(where => where.agentmail === c_user.agentmail)
+        if (possible) {
+            document.getElementById("have").innerHTML = "Your listed hostels";
+            let myhost = [];
+            myhost.push(possible);
+            console.log(possible);
+            localStorage.setItem("myhostel", JSON.stringify(myhost));
+    
+            for (let i = 0; i < myhost.length; i++) {
+                const element = myhost[i];
+                document.getElementById("myhos").innerHTML += `
+                    <div class="each w-75 text-start">
+                        <h2>Hostel Information</h2>
+                        <p><strong>Hostel Name:</strong> ${myhost[i].hostelname}</p>
+                        <p><strong>Description:</strong> ${myhost[i].description}</p>
+                        <p><strong>City:</strong> ${myhost[i].city}</p>
+                        <p><strong>Location:</strong> ${myhost[i].location}</p>
+                        <h3>Images</h3>
+                        <div class="d-flex w-100 justify-content-around overflow-x-scroll gap-3">
+                            ${myhost[i].images.map(imageUrl => `<img src="${imageUrl}" width="300px" height="200px" alt="">`).join('')}
+                        </div>
+                        <h3>Utilities</h3>
+                        <ul>
+                            ${myhost[i].utilities.map(utility => `<li>${utility}</li>`).join('')}
+                        </ul>
+                        <h3>Room Types and Numbers</h3>
+                        <ul>
+                            <li>Single occupancy apartment: ${myhost[i].roomnumbers.single} rooms</li>
+                            <li>Double occupancy apartment: ${myhost[i].roomnumbers.double} rooms</li>
+                            <li>Self-Contained apartment: ${myhost[i].roomnumbers.self}</li>
+                        </ul>
+                        <h3>Room Prices</h3>
+                        <ul>
+                            <li>Single: ₦${myhost[i].roomprices.single}</li>
+                            <li>Double: ₦${myhost[i].roomprices.double}</li>
+                            <li>Self-Contained: ₦${myhost[i].roomprices.self}</li>
+                        </ul>
+                        <p><strong>Agent Contact:</strong> ${myhost[i].agentcontact}</p>
+                        <p><strong>Agent Email:</strong> ${myhost[i].agentmail}</p>
+                    </div>
+                `;
+            }
+        } else {
+            document.getElementById("body").innerHTML = `<h1 class="font" style="height: 50vh;">Your hostel will show here</h1>`;
+        }
+    
+
+    // if (c_user.status === "agent") {
+    //     let possible = hostels.find(where => where.agentmail == c_user.agentmail)
+    //     if (possible) {
+    //         document.getElementById("have").innerHTML = "Your listed hostels"
+    //         // if (myhost == null) {
+    //             myhost = []
+    //             myhost.push(possible)
+    //             localStorage.setItem("myhostel", JSON.stringify(myhost))
+                
+    //             for (let i = 0; i < myhost.length; i++) {
+    //                 const element = myhost[i];
+    //                 // let myhost = myhost[i]
+    //                 document.getElementById("myhos").innerHTML += `
+    //                 <div class="each w-75 text-start    ">
+    //                 <h2>Hostel Information</h2>
+    //                 <p><strong>Hostel Name:</strong> ${myhost[i].hostelname}</p>
+    //                 <p><strong>Description:</strong> ${myhost[i].description}</p>
+    //                 <p><strong>City:</strong> ${myhost[i].city}</p>
+    //                 <p><strong>Location:</strong> ${myhost[i].location}</p>
+    //                 <h3>Images</h3>
+    //                 <div class="d-flex w-100 justify-content-around overflow-x-scroll gap-3 ">
+    //                 ${myhost[i].images.map(imageUrl => `<img src="${imageUrl}" width="300px" height="200px" alt="">`).join('')}
+    //                 </div>
+    //                 <h3>Utilities</h3>
+    //                 <ul>
+    //                 ${myhost[i].utilities.map(utility => `<li>${utility}</li>`).join('')}
+    //                 </ul>
+    //                 <h3>Room Types and Numbers</h3>
+    //                 <ul>
+    //                 <li>Single occupancy apartment: ${myhost[i].roomnumbers.single} rooms</li>
+    //                 <li>Double occupancy apartment: ${myhost[i].roomnumbers.double} rooms</li>
+    //                 <li>Self-Contained apartment: ${myhost[i].roomnumbers.self}</li>
+    //                 </ul>
+    //                 <h3>Room Prices</h3>
+    //                 <ul>
+    //                 <li>Single: ₦${myhost[i].roomprices.single}</li>
+    //                 <li>Double: ₦${myhost[i].roomprices.double}</li>
+    //                 <li>Self-Contained: ₦${myhost[i].roomprices.self}</li>
+    //                 </ul>
+    //                 <p><strong>Agent Contact:</strong> ${myhost[i].agentcontact}</p>
+    //                 <p><strong>Agent Email:</strong> ${myhost[i].agentmail}</p>
+    //             </div>
+                
+    //                 `
+    //             }
+        //     } else {
+        //         myhost.push(possible)
+        //         localStorage.setItem("myhostel", JSON.stringify(myhost))
+                
+        //         for (let i = 0; i < myhost.length; i++) {
+        //             const element = myhost[i];
+        //             // let myhost = myhost[i]
+        //             document.getElementById("myhos").innerHTML += `
+        //             <div class="each w-75 text-start    ">
+        //             <h2>Hostel Information</h2>
+        //             <p><strong>Hostel Name:</strong> ${myhost[i].hostelname}</p>
+        //             <p><strong>Description:</strong> ${myhost[i].description}</p>
+        //             <p><strong>City:</strong> ${myhost[i].city}</p>
+        //             <p><strong>Location:</strong> ${myhost[i].location}</p>
+        //             <h3>Images</h3>
+        //             <div class="d-flex w-100 justify-content-around overflow-x-scroll gap-3 ">
+        //             ${myhost[i].images.map(imageUrl => `<img src="${imageUrl}" width="300px" height="200px" alt="">`).join('')}
+        //             </div>
+        //             <h3>Utilities</h3>
+        //             <ul>
+        //             ${myhost[i].utilities.map(utility => `<li>${utility}</li>`).join('')}
+        //             </ul>
+        //             <h3>Room Types and Numbers</h3>
+        //             <ul>
+        //             <li>Single occupancy apartment: ${myhost[i].roomnumbers.single} rooms</li>
+        //             <li>Double occupancy apartment: ${myhost[i].roomnumbers.double} rooms</li>
+        //             <li>Self-Contained apartment: ${myhost[i].roomnumbers.self}</li>
+        //             </ul>
+        //             <h3>Room Prices</h3>
+        //             <ul>
+        //             <li>Single: ₦${myhost[i].roomprices.single}</li>
+        //             <li>Double: ₦${myhost[i].roomprices.double}</li>
+        //             <li>Self-Contained: ₦${myhost[i].roomprices.self}</li>
+        //             </ul>
+        //             <p><strong>Agent Contact:</strong> ${myhost[i].agentcontact}</p>
+        //             <p><strong>Agent Email:</strong> ${myhost[i].agentmail}</p>
+        //         </div>
+                
+        //             `
+        //     }
+            
+        // } 
+    // } else {
+    //     document.getElementById("body").innerHTML = "Your hostel will show here"
+    // }
+}else{
+    document.getElementById("body").innerHTML = `<h1 class="font" style="height: 50vh;">Your hostel will show here</h1>`;
+            
+        }
+}

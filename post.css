@@ -156,3 +156,26 @@ body{
     border: none;
     background-color: cadetblue;
 }
+#footer{
+    height: 60vh;
+    background-color: rgb(30, 47, 47);
+}
+div .foot a{
+    color: aliceblue;
+    transition: all ease-in-out 0.3s;
+}
+.foot a:hover{
+    color: goldenrod;
+}
+.media a{
+    color: goldenrod;
+    transition: all ease-in-out 0.3s;
+}
+.media a:hover{
+    color: cadetblue;
+}
+@media (max-width: 770px) {
+    .bot{
+        width: 100%;
+    }
+}

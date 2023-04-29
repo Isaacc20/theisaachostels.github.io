@@ -59,11 +59,12 @@ let a_address = document.getElementById("a_address")
 let exist = document.getElementById("exist")
 let occ_arr = JSON.parse(localStorage.getItem("Occupants"))
 let agents_arr = JSON.parse(localStorage.getItem("Agents"))
+let c_user = JSON.parse(localStorage.getItem("c_user"))
 
 // ANIMATIONS
 window.onscroll = function () { scroll(), scrolls() };
 function scroll(){
-    imgs.style.marginTop = "0%";
+    imgs.style.marginTop = "-7%";
     if (document.documentElement.scrollTop > 1000) {
         clients.style.marginLeft = '0px';
         clients1.style.marginLeft = '0px';
@@ -93,11 +94,16 @@ function scrolls(){
   
 // GET STARTED/SIGN UP/LOGIN BUTTON
 function start() {
-    form.style.display = 'flex'
-    login.style.display = "flex"
-    agentsign.style.display = "none"
-    agentlog.style.display = "none"
-    signup.style.display = "none"
+    if (c_user == null) {
+        form.style.display = 'flex'
+        login.style.display = "flex"
+        agentsign.style.display = "none"
+        agentlog.style.display = "none"
+        signup.style.display = "none"
+    } else {
+        window.location.href = 'dashboard.html'
+    }
+    
 }
 // loggin.addEventListener("click", (ev)=>{
 //     ev.preventDefault();
@@ -105,28 +111,40 @@ function start() {
 // })
 function get(ev){
     ev.preventDefault()
-    form.style.display = 'flex'
-    login.style.display = "none"
-    signup.style.display = "flex"
-    agentsign.style.display = "none"
-    agentlog.style.display = "none"
+    if (c_user == null) {
+        form.style.display = 'flex'
+        login.style.display = "none"
+        signup.style.display = "flex"
+        agentsign.style.display = "none"
+        agentlog.style.display = "none"
+    } else {
+        window.location.href = 'dashboard.html'
+    }
 }
 // AGENT SIGN UP/LOGIN BUTTON
 function launch(ev){
     ev.preventDefault()
-    form.style.display = 'flex'
-    login.style.display = "none"
-    signup.style.display = "none"
-    agentsign.style.display = "none"
-    agentlog.style.display = "flex"
+    if (c_user == null) {
+        form.style.display = 'flex'
+        login.style.display = "none"
+        signup.style.display = "none"
+        agentsign.style.display = "none"
+        agentlog.style.display = "flex"
+    } else {
+        window.location.href = 'dashboard.html'
+    }
 }
 function asign(ev){
     ev.preventDefault()
-    form.style.display = 'flex'
-    login.style.display = "none"
-    signup.style.display = "none"
-    agentsign.style.display = "flex"
-    agentlog.style.display = "none"
+    if (c_user == null) {
+        form.style.display = 'flex'
+        login.style.display = "none"
+        signup.style.display = "none"
+        agentsign.style.display = "flex"
+        agentlog.style.display = "none"
+    } else {
+        window.location.href = 'dashboard.html'
+    }
 }
 
 // NEXT/PREV BUTTONS IN AGENT SIGN UP
@@ -202,27 +220,34 @@ function slash() {
         battt.type = "password"
     }
 }
-c_password.addEventListener("input", (ev)=>{
-    ev.preventDefault()
-    eyess()
+// c_password.addEventListener("input", (ev)=>{
+//     ev.preventDefault()
+//     eyess()
+// })
+let ids = document.querySelectorAll("#c_password, #password, #apassword, #ac_password, #apass")
+ids.forEach((el)=>{
+    el.addEventListener("input", (ev)=>{
+        ev.preventDefault();
+        eyess()
+    })
 })
 
-password.addEventListener("input", (ev)=>{
-    ev.preventDefault()
-    eyess()
-})
-apassword.addEventListener("input", (ev)=>{
-    ev.preventDefault()
-    eyess()
-})
-ac_password.addEventListener("input", (ev)=>{
-    ev.preventDefault()
-    eyess()
-})
-apass.addEventListener("input", (ev)=>{
-    ev.preventDefault()
-    eyess()
-})
+// password.addEventListener("input", (ev)=>{
+//     ev.preventDefault()
+//     eyess()
+// })
+// apassword.addEventListener("input", (ev)=>{
+//     ev.preventDefault()
+//     eyess()
+// })
+// ac_password.addEventListener("input", (ev)=>{
+//     ev.preventDefault()
+//     eyess()
+// })
+// apass.addEventListener("input", (ev)=>{
+//     ev.preventDefault()
+//     eyess()
+// })
 eye.addEventListener("click", (ev)=>{
     ev.preventDefault();
     slash()
@@ -273,6 +298,7 @@ function create(ev) {
                 localStorage.setItem("Occupants", JSON.stringify(occ_arr))
                 console.log(occ_arr);
                 console.log(occ_details);
+                log(ev)
             } else{ 
                 let found = occ_arr.find(where => occ_details.Occ_email === where.Occ_email)
                 if(found){
@@ -290,6 +316,7 @@ function create(ev) {
                     localStorage.setItem("Occupants", JSON.stringify(occ_arr))
                     console.log(occ_arr);
                     console.log(occ_details);
+                    log(ev)
                 }
             }
             // setTimeout(() => {
@@ -328,6 +355,7 @@ function log(ev) {
         pp.style.backgroundColor = "green"
         pp.innerHTML = "Login Successful"
         console.log(found);
+        found.status = "occupant"
         setTimeout(() => {
             window.location.href = "dashboard.html"
             localStorage.setItem("c_user", JSON.stringify(found))
@@ -377,20 +405,24 @@ function sbmit(ev){
                 let agents_arr = []
                 agents_arr.push(agents)
                 localStorage.setItem("Agents", JSON.stringify(agents_arr))
+                alog(ev)
             } else {
                 let find = agents_arr.find(where=> where.agentmail == agents.agentmail)
                 if (find) {
                     ppp.style.display = "block"
-                ppp.style.backgroundColor = "red"
-                ppp.innerHTML = "The email address has already been used"
-                faaa.style.color = "white"
-                return;
+                    ppp.style.backgroundColor = "red"
+                    ppp.innerHTML = "The email address has already been used"
+                    faaa.style.color = "white"
+                    return;
                 } else {
                     ppp.style.display = "block"
-                ppp.style.backgroundColor = "green"
-                ppp.innerHTML = "Successful! You're now an Admin"
-                faaa.style.color = "white"
-                exist.innerHTML = `Continue to &nbsp;<button onclick="agsign(event)" class="h5">Log In</button>`
+                    ppp.style.backgroundColor = "green"
+                    ppp.innerHTML = "Successful! You're now an Admin"
+                    faaa.style.color = "white"
+                    exist.innerHTML = `Continue to &nbsp;<button onclick="agsign(event)" class="h5">Log In</button>`
+                    agents_arr.push(agents)
+                    localStorage.setItem("Agents", JSON.stringify(agents_arr))
+                    alog(ev)
                 }
             }
         }
@@ -412,7 +444,11 @@ function alog(ev){
             pppp.style.backgroundColor = "green"
             pppp.innerHTML = "Log In Successful"
             faaaa.style.color = "white"
-            return
+            find.status = "agent"
+            setTimeout(() => {
+                window.location.href = "dashboard.html"
+                localStorage.setItem("c_user", JSON.stringify(find))
+            }, 3000);
         } else {
             pppp.style.display = "block"
             pppp.style.backgroundColor = "red"
@@ -421,11 +457,11 @@ function alog(ev){
         }
     }
 }
-function tologin(ev){
-    ev.preventDefault();
-    startt(ev)
-}
-function alogin(ev){
-    ev.preventDefault();
-    launch(ev)
-}
+// function tologin(ev){
+//     ev.preventDefault();
+//     startt(ev)
+// }
+// function alogin(ev){
+//     ev.preventDefault();
+//     launch(ev)
+// }
