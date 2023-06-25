@@ -11,13 +11,13 @@ body{
     width: 100vw;
 }
 
-.top .btn{
+.top .botn{
     color: white;
     font-weight: 400;
     white-space: nowrap;
     border: none;
 }
-.top .btn:hover{
+.top .botn:hover{
     /* background-color: bisque; */
     border-bottom: 2px solid orange;
 }
@@ -99,41 +99,12 @@ body{
     border-radius: 0px 40px 40px 0px;
     background-color: orange;
 }
-/* #land{
-    height: 140vh;
-    width: 70vw;
-    margin-top: -70vh;
-    transform: rotate(30deg)skewX(-35deg);
-    border-radius: 0px 0px 30% 0px;
-    background-color: cadetblue;
-}
-#land #img{
-    transition: all ease-in-out 1s;
-    transform: skewX(35deg)rotate(-30deg);
-    margin-top: 55%;
-    margin-left: 40%;
-    border-right: 7px solid brown;
-    border-radius: 0px 7px 3px 0px;
-    margin-right: -400px;
-} */
-/* #dev{
-    transform: skewX(35deg)rotate(-30deg);
-    width: 90%; */
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    /* font-style: italic; */
-    /* font-weight: bold;
-    margin-top: 40%;
-    margin-left: 40%;
-    transition-property: margin-top;
-    transition: ease-in-out 1s; */
-    /* text-shadow: 0px 0px 2px gray; */
-    /* text-shadow: 0px 0px 4px black;
-} */
 .each{
     box-shadow: 2px 2px 4px grey;
     border-radius: 7px;
-    width: 30%;
+    width: 20vw;
     min-width: 250px;
+    max-width: 400px;
     transition: all ease-in-out .5s;
     text-align: start;
 }
@@ -171,11 +142,17 @@ body{
 .each img:hover{
     transform: scale(110%);
 }
+.each .hostel-desc{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    overflow-clip-margin: clip;
+}
 .each h4{
     color: rgb(26, 91, 93);
 }
 #footer{
-    height: 60vh;
+    height: fit-content;
     background-color: rgb(30, 47, 47);
 }
 div .foot a{
@@ -193,7 +170,27 @@ div .foot a{
     color: cadetblue;
 }
 @media (max-width: 770px) {
+    .land .search{
+        width: 80vw!important
+    }
+    .land .search input{
+        width: 100%!important;
+    }
     .bot{
         width: 100%;
+    }
+    .each{
+        width: 40%;
+    }
+    .each .imgs{
+        overflow: none;
+    }
+    .each .hover-btn{
+        bottom: 0;
+    }
+}
+@media (max-width: 550px) {
+    .each{
+        width: 70%;
     }
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="Icofont/fontawesome-free-6.2.1-web/css/all.css">
@@ -14,26 +15,48 @@
 </head>
 <body>
     <main onscroll="scroll()">
-        <div id="topn" class="top w-100 d-flex align-items-center justify-content-between bg-dark py-1 px-4">
-            <a href="" class="" ><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
-            <div class="div d-flex align-items-stretch justify-content-around mx-5 px-5 w-50">
-                <a href="#landd" class="btn rounded-0">Home</a>
-                <a href="dashboard.html" class="btn rounded-0 get">Apartments</a>
-                <!-- <a class="btn rounded-0 get">Cafe</a> -->
-                <a href="#imgs" id="abs" class="btn rounded-0">About us</a>
-                <div class="stats">
-                    <a class="btn rounded-0 more get">More <i class="fa fa-chevron-down"></i></a>
-                    <div class="stat flex-column bg-light align-items-start gap-2 p-2">
-                        <a class="btn text-dark rounded-0 w-100 text-start h6 get">Amenities</a>
-                        <a class="btn text-dark rounded-0 w-100 text-start h6 get">Cafe</a>
-                        <a class="btn text-dark rounded-0 w-100 text-start h6 get">Agents</a>
-                        <a class="btn text-dark rounded-0 w-100 text-start h6 get">Contact us</a>
-                    </div>
-                </div>
-                <!-- <button id="loggin" class="btn sign">Log in</button> -->
+          <nav class="navbar navbar-expand-lg top bg-dark topn">
+            <div class="container-fluid container">
+              <a class="navbar-brand" href="#"><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
+              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse w-50" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link botn" aria-current="page" href="#landd">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link botn" href="dashboard.html">Apartments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link botn" href="#imgs">About us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="text-light nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Amenities</a></li>
+                      <li><a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Cafe</a></li>
+                      <li><a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Agents</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Contact us</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form>
+                    <li>
+                        <a oncontextmenu="context(event)" style="cursor: pointer;" class="botn dropdown-item" onclick="get(event)">Sign up</a>
+                    </li>
+                    <li>
+                        <a class="botn dropdown-item" style="display: none;cursor: pointer;" onclick="admin(1)"><i class="fa-solid fa-star text-warning"></i></a>
+                    </li>
+                </form>
+              </div>
             </div>
-                <a class="btn rounded-0 get" onclick="get(event)">Sign up</a>
-        </div>
+          </nav>
+
         <div class="body">
             <!--  -->
                 <div id="landd">
@@ -42,8 +65,8 @@
                 </video>
                   <div id="land" class="carousel-item active land d-flex flex-column align-items-center justify-content-center py-5">
                     <h1 class="dev font d-flex flex-column align-items-center justify-content-center text-light gap-4"><img src="ezgif-5-7b77363014.png" width="250px" alt="">Experience Our Hostels Online</h1>
-                    <button id="start" class="start bg-transparent border-warning text-light px-3 mt-4 py-2" onclick="start()">Get a Room</button>
-                  </div>
+                    <button class="start bg-transparent border-warning text-light px-3 mt-4 py-2" onclick="start(event)">Get a Room</button>
+            </div>
                 </div>
                 <!-- EXPLORE -->
                 <div id="hostels" class="container home my-5">
@@ -85,8 +108,8 @@
             </div>
             <!-- OFFERS -->
             <div id="offer" class="home offer-section gap-1 p-5">
-                <div class="d-flex w-100 align-items-center justify-content-center text-center container w-100 my-4"><hr class="w-100"><h4 class="boutT font mx-3">WHAT WE OFFER</h4><hr class="w-100"></div>
-                <div class="d-flex home flex-wrap gap-4 align-items-stretch justify-content-around">
+                <div class="d-flex w-100 align-items-center justify-content-center text-center container my-4"><hr class="w-100"><h4 class="boutT font mx-3">WHAT WE OFFER</h4><hr class="w-100"></div>
+                <div class="d-sm-grid d-lg-flex mx-auto container home flex-wrap gap-4 align-items-stretch justify-content-around">
                     <div id="clients" class="offer-box">
                         <img src="room.jpg" alt="">
                         <h3 class="offer-title font px-2">Comfortable Rooms</h3>
@@ -109,6 +132,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="bord home d-flex align-items-center justify-content-center my-4"><button class="startt text-light h4 p-2" onclick="startt(event)">Book a room</button><button class="starttt bg-transparent h4 p-2" onclick="launch(event)">Launch your hostel</button></div>
             <!-- AGENTS -->
             <div id="client">
@@ -128,6 +152,24 @@
               
             <!-- FORMS -->
             <div id="form">
+                <form id="admin_log" action="" style="display: none;" class="position-relative px-5 gap-3">
+                    <p id="admin_not" class="text-white text-center py-1"></p>
+                    <button id="admin_faa" type="button" class="btn fa"><i class="fa fa-arrow-left"></i></button>
+                    <div class="d-flex justify-content-between cre">
+                        <h1>Log In</h1>
+                        <!-- <img src="iDev HM Black.png" width="70px" alt=""> -->
+                    </div>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="admin_mail" type="email" placeholder="Email" required>
+                    <div class="d-flex align-items-center my-3 inp">
+                        <input name="" class="w-100 px-3 pt-3 h6 rounded-0" id="admin_pass" type="password" maxlength="4" placeholder="Pin" required>
+                        <button id="ey" class="btn"><i class="fa-regular fa-eye-slash"></i></button>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <!-- <h6 class="w-50"><button onclick="admin_log(event)" class="h5">Log In</button></h6>
+                        <h5 class="exist">Don't have an account? &nbsp;<button onclick="sign(event)" class="h5">Sign up</button></h5> -->
+                    </div>
+                </form>
+
                 <form id="signup" action="" class="position-relative px-5 gap-3">
                     <p id="p" class="text-white text-center py-1"></p>
                     <button id="fa" type="button" class="btn fa"><i class="fa fa-arrow-left"></i></button>
@@ -135,15 +177,15 @@
                         <h1>Create account</h1>
                         <!-- <img src="iDev HM Black.png" width="70px" alt=""> -->
                     </div>
-                    <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="name" type="text" placeholder="First name" required autofocus>
-                    <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="lname" type="text" placeholder="Last name" required>
-                    <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="email" type="email" placeholder="Email" required>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="name" type="text" placeholder="First name" required autofocus>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="lname" type="text" placeholder="Last name" required>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="email" type="email" placeholder="Email" required>
                     <div class="d-flex align-items-center inp">
-                        <input name="" class="w-100 px-3 pt-3 h6 rounded-0" id="password" type="password" placeholder="Password" required>
+                        <input name="" class="w-100 px-3 pt-3 h6" id="password" type="password" placeholder="Password" required>
                         <button id="eye" class="btn"><i class="fa-regular fa-eye-slash"></i></button>
                     </div>
                     <div class="d-flex align-items-center inp">
-                        <input oninput="" name="" class="w-100 px-3 py-2 pt-3 h6 rounded-0" id="c_password" type="password" placeholder="Confirm Password" required>
+                        <input oninput="" name="" class="w-100 px-3 py-2 pt-3 h6" id="c_password" type="password" placeholder="Confirm Password" required>
                         <button id="eyes" class="btn"><i class="fa-regular fa-eye-slash"></i></button>
                     </div>
                     <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -161,9 +203,9 @@
                         <h1>Log In</h1>
                         <!-- <img src="iDev HM Black.png" width="70px" alt=""> -->
                     </div>
-                    <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="gmail" type="email" placeholder="Email" required>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="gmail" type="email" placeholder="Email" required>
                     <div class="d-flex align-items-center my-3 inp">
-                        <input name="" class="w-100 px-3 pt-3 h6 rounded-0" id="pass" type="password" placeholder="Password" required>
+                        <input name="" class="w-100 px-3 pt-3 h6" id="pass" type="password" placeholder="Password" required>
                         <button id="eyee" class="btn"><i class="fa-regular fa-eye-slash"></i></button>
                     </div>
                     <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -182,9 +224,9 @@
                     </div>
                     <div class="over d-flex w-100 gap-5">
                         <div id="one" class="d-flex flex-column w-100">
-                            <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="aname" type="text" placeholder="First name" required autofocus>
-                            <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="laname" type="text" placeholder="Last name" required>
-                            <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="agmail" type="email" placeholder="Email" required>
+                            <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="aname" type="text" placeholder="First name" required autofocus>
+                            <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="laname" type="text" placeholder="Last name" required>
+                            <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="agmail" type="email" placeholder="Email" required>
                             <h6 class="w-50"><button onclick="next(event)" class="h5">Next</button></h6>
                         </div>
                         <div id="two" class="w-100">
@@ -222,7 +264,7 @@
                         <h1 class="fs-3">Log In as an Agent</h1>
                         <!-- <img src="iDev HM Black.png" width="70px" alt=""> -->
                     </div>
-                    <input name="" class="inp px-3 py-2 pt-3 h6 rounded-0" id="amail" type="email" placeholder="Email" required>
+                    <input name="" class="inp form-control px-3 py-2 pt-3 h6 " id="amail" type="email" placeholder="Email" required>
                     <div class="d-flex align-items-center my-3 inp">
                         <input name="" class="w-100 px-3 pt-3 h6 rounded-0" id="apass" type="password" placeholder="Password" required>
                         <button id="eyeeee" class="btn"><i class="fa-regular fa-eye-slash"></i></button>
@@ -236,7 +278,7 @@
         </div>
         <div id="footer" class="mt-5 d-flex flex-column align-items-center justify-content-between gap-5 py-3">
             <a href=""><img src="ezgif-5-7b77363014.png" width="250rem" alt=""></a>
-            <div class="w-25 d-flex justify-content-around media">
+            <div class="w-25 d-flex gap-4 justify-content-around media">
                 <a href="https://wa.me/+2348020779250"><i class="fa-brands fa-whatsapp fs-2"></i></a>
                 <a href="https://www.facebook.com/isaac.oyedele.56"><i class="fa-brands fa-facebook fs-2"></i></a>
                 <a href="https://twitter.com/IsaacOyedele6"><i class="fa-brands fa-twitter fs-2"></i></a>
@@ -246,7 +288,7 @@
                 <a href="https://github.com/Isaacc20/Hostel-Management.git"><i class="fa-brands fa-github fs-2"></i></a>
             </div>
             <div class="d-flex flex-column align-items-center justify-content-between w-50 h-75">
-                <div class="foot d-flex align-items-center justify-content-around w-100">
+                <div class="foot d-flex gap-4 flex-wrap align-items-center justify-content-around w-100">
                     <a class="text-decoration-none h6" href="">Home</a>
                     <a class="text-decoration-none h6" href="">Rooms</a>
                     <a class="text-decoration-none h6" href="">Cafe</a>
@@ -255,7 +297,7 @@
                     <a class="text-decoration-none h6" href="">About us</a>
                     <a class="text-decoration-none h6" href="">Contacts</a>
                 </div>
-                <p class="text-light">The Isaac Hostels 2023 All Rights Reserved</p>
+                <small class="text-secondary">The Isaac Hostels 2023 All Rights Reserved</small>
             </div>
         </div>
     </main>

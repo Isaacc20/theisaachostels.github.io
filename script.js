@@ -18,6 +18,12 @@ let person = document.getElementById("person")
 let agentlog = document.getElementById("agentlog")
 let signup = document.getElementById("signup")
 let agentsign = document.getElementById("agentsign")
+// let admin = document.getElementById("admin")
+let admin_not = document.getElementById("admin_not")
+let admin_faa = document.getElementById("admin_faa")
+let admin_mail = document.getElementById("admin_mail")
+let admin_pass = document.getElementById("admin_pass")
+let admins = document.getElementById("admin_log")
 let one = document.getElementById("one")
 let two = document.getElementById("two")
 let three = document.getElementById("three")
@@ -46,12 +52,6 @@ let apass = document.getElementById("apass")
 let c_password = document.getElementById("c_password")
 let apassword = document.getElementById("apassword")
 let ac_password = document.getElementById("ac_password")
-let eye = document.getElementById("eye")
-let eyee = document.getElementById("eyee")
-let eyes = document.getElementById("eyes")
-let eyese = document.getElementById("eyese")
-let eyesss = document.getElementById("eyesss")
-let eyeeee = document.getElementById("eyeeee")
 let a_country = document.getElementById("a_country")
 let a_state = document.getElementById("a_state")
 let a_city = document.getElementById("a_city")
@@ -62,30 +62,64 @@ let agents_arr = JSON.parse(localStorage.getItem("Agents"))
 let c_user = JSON.parse(localStorage.getItem("c_user"))
 
 // ANIMATIONS
-window.onscroll = function () { scroll(), scrolls() };
-function scroll(){
-    imgs.style.marginTop = "-7%";
-    if (document.documentElement.scrollTop > 1000) {
-        clients.style.marginLeft = '0px';
-        clients1.style.marginLeft = '0px';
-        clients2.style.marginLeft = '0px';
-        clients3.style.marginLeft = '0px';
-        person.style.transform = 'scale(100%)';
-    } else {
-    clients.style.marginLeft = '-100%';
-    clients1.style.marginLeft = '-100%';
-    clients2.style.marginLeft = '-100%';
-    clients3.style.marginLeft = '-100%';
-    person.style.marginLeft = 'scale(40%)';
-}
-}
-function scrolls(){
-    if (document.documentElement.scrollTop > 1800) {
-        person.style.transform = 'scale(100%)';
-    } else {
-    person.style.transform = 'scale(40%)';
-}
-}
+// window.onscroll = function () { scroll(), scrolls() };
+// function scroll(){
+//     imgs.style.marginTop = "-7%";
+//     if (document.documentElement.scrollTop > 1000) {
+//         // clients.style.marginLeft = '0px';
+//         // clients1.style.marginLeft = '0px';
+//         // clients2.style.marginLeft = '0px';
+//         // clients3.style.marginLeft = '0px';
+//         person.style.transform = 'scale(100%)';
+//     } else {
+//     // clients.style.marginLeft = '-100%';
+//     // clients1.style.marginLeft = '-100%';
+//     // clients2.style.marginLeft = '-100%';
+//     // clients3.style.marginLeft = '-100%';
+//     person.style.transform = 'scale(40%)';
+// }
+// }
+// function scrolls(){
+//     if (document.documentElement.scrollTop > 1800) {
+//         person.style.transform = 'scale(100%)';
+//     } else {
+//     person.style.transform = 'scale(40%)';
+// }
+// }
+
+window.addEventListener('scroll', () => {
+    let content = document.querySelectorAll('#clients, #clients1, #clients2, #clients3');
+    content.forEach((el)=>{
+        let contentPosition = el.getBoundingClientRect().top;
+        let screenPosition = window.innerHeight;
+    //content.forEach((el)=>{
+        if(contentPosition < screenPosition){
+        // console.log("less than");
+           el.style.marginLeft = 0
+        }else{
+        // console.log("greater than");
+            el.style.marginLeft = "-100%"
+        }
+    //})
+    })
+    let c_Position = person.getBoundingClientRect().top;
+    let cPosition = imgs.getBoundingClientRect().top;
+    let s_Position = window.innerHeight;
+    if(c_Position < s_Position || cPosition < s_Position){
+        // console.log("less than");
+        // content.forEach((el)=>{
+            // imgs.style.marginTop = "0%"
+            person.style.transform = 'scale(100%)';
+        // })
+    }else{
+        // console.log("greater than");
+        // content.forEach((el)=>{
+            // imgs.style.marginTop = "40%"
+            person.style.transform = 'scale(0%)';
+        // })
+    }
+})
+
 // function scrollFunction() {
 // }
 // if (window.scrollTop > 10000) {
@@ -111,15 +145,11 @@ function start() {
 // })
 function get(ev){
     ev.preventDefault()
-    if (c_user == null) {
-        form.style.display = 'flex'
-        login.style.display = "none"
-        signup.style.display = "flex"
-        agentsign.style.display = "none"
-        agentlog.style.display = "none"
-    } else {
-        window.location.href = 'dashboard.html'
-    }
+    form.style.display = 'flex'
+    login.style.display = "none"
+    signup.style.display = "flex"
+    agentsign.style.display = "none"
+    agentlog.style.display = "none"
 }
 // AGENT SIGN UP/LOGIN BUTTON
 function launch(ev){
@@ -203,12 +233,12 @@ faaaa.addEventListener("click", (ev)=>{
     form.style.display = 'none'
 })
 // FORM INPUTS
-function eyess() {
+function eyess(e) {
     let bat = event.target
     let batt = bat.nextElementSibling.firstElementChild
     batt.style.visibility = "visible"
 }
-function slash() {
+function slash(e) {
     let bat = event.target
     let batt = bat.className
     let battt = bat.parentElement.previousElementSibling
@@ -220,10 +250,6 @@ function slash() {
         battt.type = "password"
     }
 }
-// c_password.addEventListener("input", (ev)=>{
-//     ev.preventDefault()
-//     eyess()
-// })
 let ids = document.querySelectorAll("#c_password, #password, #apassword, #ac_password, #apass")
 ids.forEach((el)=>{
     el.addEventListener("input", (ev)=>{
@@ -231,42 +257,12 @@ ids.forEach((el)=>{
         eyess()
     })
 })
-
-// password.addEventListener("input", (ev)=>{
-//     ev.preventDefault()
-//     eyess()
-// })
-// apassword.addEventListener("input", (ev)=>{
-//     ev.preventDefault()
-//     eyess()
-// })
-// ac_password.addEventListener("input", (ev)=>{
-//     ev.preventDefault()
-//     eyess()
-// })
-// apass.addEventListener("input", (ev)=>{
-//     ev.preventDefault()
-//     eyess()
-// })
-eye.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    slash()
-})
-eyes.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    slash()
-})
-eyese.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    slash()
-})
-eyesss.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    slash()
-})
-eyeeee.addEventListener("click", (ev)=>{
-    ev.preventDefault();
-    slash()
+let showPass = document.querySelectorAll("#eye, #eyes, #eyese, #eyesss, #eyeeee")
+showPass.forEach((el)=>{
+    el.addEventListener("click", (ev)=>{
+        ev.preventDefault();
+        slash()
+    })
 })
 // SIGNUP SUBMIT BUTTON
 function create(ev) {
@@ -278,12 +274,6 @@ function create(ev) {
         fa.style.color = 'white'
         return;
     } else {
-        let occ_details = {
-            Occ_firstname: nam.value,
-            Occ_lastname: lnam.value,
-            Occ_email: email.value,
-            Occ_password:password.value
-        }
         
         if (password.value != c_password.value) {
             p.style.display = "block"
@@ -292,13 +282,30 @@ function create(ev) {
             p.innerHTML = "Fill the same password"
             return;
         } else {
-            if (occ_arr == null || occ_arr == "") {
+            let occ_details = {
+                Occ_firstname: nam.value,
+                Occ_lastname: lnam.value,
+                Occ_email: email.value,
+                Occ_password:password.value
+            }
+            if (occ_arr === null || occ_arr === "" || occ_arr === [] || occ_arr === undefined) {
                 let occ_arr = []
                 occ_arr.push(occ_details)
                 localStorage.setItem("Occupants", JSON.stringify(occ_arr))
                 console.log(occ_arr);
                 console.log(occ_details);
-                log(ev)
+                p.style.display = "block"
+                fa.style.color = 'white'
+                p.style.backgroundColor = "green"
+                p.innerHTML = "Account successfuly created"
+                occ_arr.push(occ_details)
+                localStorage.setItem("Occupants", JSON.stringify(occ_arr))
+                console.log(occ_arr);
+                console.log(occ_details);
+                setTimeout(() => {
+                    window.location.href = "dashboard.html"
+                    localStorage.setItem("c_user", JSON.stringify(found))
+                }, 3000);
             } else{ 
                 let found = occ_arr.find(where => occ_details.Occ_email === where.Occ_email)
                 if(found){
@@ -316,7 +323,10 @@ function create(ev) {
                     localStorage.setItem("Occupants", JSON.stringify(occ_arr))
                     console.log(occ_arr);
                     console.log(occ_details);
-                    log(ev)
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html"
+                        localStorage.setItem("c_user", JSON.stringify(found))
+                    }, 3000);
                 }
             }
             // setTimeout(() => {
@@ -422,7 +432,8 @@ function sbmit(ev){
                     exist.innerHTML = `Continue to &nbsp;<button onclick="agsign(event)" class="h5">Log In</button>`
                     agents_arr.push(agents)
                     localStorage.setItem("Agents", JSON.stringify(agents_arr))
-                    alog(ev)
+                    window.location.href = "dashboard.js"
+                    // alog(ev)
                 }
             }
         }
@@ -457,11 +468,64 @@ function alog(ev){
         }
     }
 }
-// function tologin(ev){
-//     ev.preventDefault();
-//     startt(ev)
-// }
-// function alogin(ev){
-//     ev.preventDefault();
-//     launch(ev)
-// }
+function tologin(ev){
+    ev.preventDefault();
+    startt(ev)
+}
+function alogin(ev){
+    ev.preventDefault();
+    launch(ev)
+}
+
+// let contexts = document.getElementById("#context")
+// contexts.addEventListener("contextmenu", (e)=>{
+        
+//         // }, 3000);
+        
+//     })
+
+    function context(e){
+        e.preventDefault();
+        let admini = e.target.parentElement.nextElementSibling.firstElementChild
+        console.log(admini)
+        admini.style.display = "block"
+    }
+
+function admin(ev){
+    // ev.preventDefault();
+    form.style.display = "flex"
+    admins.style.display = "flex"
+    login.style.display = "none"
+    signup.style.display = "none"
+    agentsign.style.display = "none"
+    agentlog.style.display = "none"
+}
+// let admin_inps = document.querySelectorAll('#admin_mail', '#admin_pass')
+// admin_inps.forEach((el)=>{
+//     el.addEventListener('input', ()=>{
+//     if (admin_mail.value == 'isaacoluwadarasimi002@gmail.com' && admin_pass.value == '1987') {
+//         alert('Done')
+//         window.location.href = 'post.html'
+//     } else {
+//         return
+//     }
+// })
+// })
+admin_mail.addEventListener('input', ()=>{
+    if (admin_mail.value == 'isaacoluwadarasimi002@gmail.com' && admin_pass.value == '1987') {
+        alert('Done')
+        window.location.href = 'post.html'
+    } else {
+        return
+    }
+})
+admin_pass.addEventListener('input', ()=>{
+    if (admin_mail.value == 'isaacoluwadarasimi002@gmail.com' && admin_pass.value == '1987') {
+        alert('Done')
+        localStorage.setItem("SA", ('Super Admin'))
+        localStorage.removeItem('c_user')
+        window.location.href = 'post.html'
+    } else {
+        return
+    }
+})

@@ -23,22 +23,13 @@ let himgs4 = document.getElementById("himgs4")
 let desc = document.getElementById("desc")
 let hcity = document.getElementById("hcity")
 let hlocation = document.getElementById("hlocation")
-// let hprice = document.getElementById("hprice")
-// let s_highest = document.getElementById("s_highest")
-// let d_highest = document.getElementById("d_highest")
-// let p_highest = document.getElementById("p_highest")
-// let save = document.getElementById("sn")
-// let reader = new FileReader();
-// let reader1 = new FileReader();
-// let reader2 = new FileReader();
-// let reader3 = new FileReader();
-// let myFile = document.getElementById("myFile")
-// let image = document.getElementById("image")
+let hostels = JSON.parse(localStorage.getItem("hostels"))
 let amen = document.getElementById("amen")
 let amenity = []
 // let avail = document.getElementById("avail")
 let rooms = []
 let c_user = JSON.parse(localStorage.getItem("c_user"))
+let sa = localStorage.getItem("SA")
 // let myhost = JSON.parse(localStorage.getItem("myhostel"))
 
 function logout(ev) {
@@ -47,6 +38,7 @@ function logout(ev) {
         window.location.href = 'index.html';
     } else {
         localStorage.removeItem("c_user")
+        localStorage.removeItem("SA")
         window.location.href = "index.html"
         window.location.reload()
     }
@@ -87,64 +79,6 @@ city.addEventListener("input", ()=>{
 locate.addEventListener("input", ()=>{
     hlocation.innerHTML = locate.value
 })
-// description.addEventListener("input", ()=>{
-//     desc.innerHTML = description.value
-// })
-
-// function na(){
-//     let targ = event.target
-//     let prices = targ.previousElementSibling.lastElementChild
-//     let btn = targ.previousElementSibling.nextElementSibling
-//     console.log(btn);
-//     if (prices.disabled == true) {
-//         prices.disabled = false
-//         prices.placeholder = "in Naira(₦)"
-//         btn.style.color = "cadetblue"
-//         btn.style.border = "1px solid cadetblue"
-//         prices.style.border = "1px solid orange"
-//         prices.style.boxShadow = "0px 0px 10px grey"
-//     } else {
-//         prices.disabled = true
-//         prices.placeholder = "Not available"
-//         btn.style.color = "grey"
-//         btn.style.border = "1px solid grey"
-//         prices.style.border = "1px solid grey"
-//         prices.style.boxShadow = "0px 0px 0px transparent"
-//     }
-// }
-// nas.addEventListener("click", ()=>{
-//     na()
-
-// })
-// nad.addEventListener("click", ()=>{
-//     na()
-// })
-
-
-// nap.addEventListener("click", ()=>{
-//     na()
-// })
-// single.addEventListener("scroll", ()=>{
-//     return;
-// })
-// double.addEventListener("scroll", ()=>{
-//     return;
-// })
-// private.addEventListener("scroll", ()=>{
-//     return;
-// })
-
-    // function chooseImage(){
-    //     let data = myFile.files[0];
-    //     console.log(data);
-    //     reader.addEventListener("load", function(){
-    //         console.log(reader.result);
-    //     document.getElementById("image").src = reader.result
-    //     })
-    //     if(data) {
-    //         reader.readAsDataURL(data)
-    //     }   
-    // }
 
     const imageInput = document.getElementById('imageInput');
     const imageUrls = [];
@@ -169,68 +103,6 @@ locate.addEventListener("input", ()=>{
         };
     }
     });
-
-
-//   const imageInput = document.getElementById('imageInput');
-//   const imageUrls = [];
-
-//   imageInput.addEventListener('change', (event) => {
-//     const files = event.target.files;
-    
-//     for (let i = 0; i < files.length; i++) {
-//       const reader = new FileReader();
-
-//         reader.readAsDataURL(files[i]);
-//       reader.onload = (event) => {
-//         const imageUrl = event.target.result;
-//         imageUrls.push(imageUrl);
-//         const url = reader.result;
-//         imageUrls.push(url);
-//         console.log(url);
-//         document.querySelector("#imgs").innerHTML = ""
-//         for (let i = 0; i < imageUrls.length; i++) {
-//         document.querySelector("#imgs").innerHTML += `
-//         <img src="${imageUrls[i]}" width="300px" height="200px" alt="">
-//         `
-//       }
-//       };
-//     }
-//   });
-
-
-    // pic2.addEventListener("change", ()=>{
-    //     let data = pic2.files[0];
-    //     console.log(data);
-    //     reader1.addEventListener("load", function(){
-    //         console.log(reader.result);
-    //         himgs2.src = reader.result
-    //     })
-    //     if(data) {
-    //         reader1.readAsDataURL(data)
-    //     }   
-    // })
-    // pic3.addEventListener("change", ()=>{
-    //     let data = pic3.files[0];
-    //     console.log(data);
-    //     reader2.addEventListener("load", function(){
-    //         console.log(reader.result);
-    //         himgs3.src = reader.result
-    //     })
-    //     if(data) {
-    //         reader2.readAsDataURL(data)
-    //     }   
-    // })
-    // pic4.addEventListener("change", ()=>{
-    //     let data = pic4.files[0];
-    //     console.log(data);
-    //     reader3.addEventListener("load", function(){
-    //         console.log(reader.result);
-    //         himgs4.src = reader.result
-    //     })
-    //     if(data) {
-    //         reader3.readAsDataURL(data)
-    //     }   
-    // })
 
     let amenities = document.querySelectorAll("#bunks, #wifi, #electricity, #clean, #cafe")
     amenities.forEach((el)=>{
@@ -380,22 +252,6 @@ locate.addEventListener("input", ()=>{
             let tag = e.target.parentElement.innerText
             if (el.checked == true) {
                 rooms.push(tag)
-                // avail.innerHTML += `<li class="fs-6 font">${tag}</li>`
-                // if (el.className == "form-check-input single") {
-                //     room_n[0].style.disabled = false
-                // } else {
-                //     room_n[0].disabled = true
-                // }
-                // if (el.className == "form-check-input double") {
-                //     room_n[1].style.disabled = false
-                // } else {
-                //     room_n[1].disabled = true
-                // }
-                // if (el.className == "form-check-input self") {
-                //     room_n[2].style.disabled = false
-                // } else {
-                //     room_n[2].disabled = true
-                // }
             } else {
                 let found = rooms.findIndex(where=>where == tag)
                 rooms.splice(found, 1)
@@ -414,101 +270,11 @@ locate.addEventListener("input", ()=>{
     })
 
     let conts = document.querySelector("#contact")
+    let ids = 0
     conts.addEventListener("input", ()=>{
         document.querySelector("#cont").innerHTML = conts.value
     })
 
-    // let prices = document.querySelectorAll("#som, #dom, #scm")
-    // prices.forEach((el)=>{
-    //     el.addEventListener
-    // })
-
-//     let types = document.querySelectorAll(".single, .double, .self");
-// let room_n = document.querySelectorAll("#single_r, #double_r, #self_r");
-// room_n.forEach(el => {
-//     el.disabled = true;
-// });
-// types.forEach((el)=>{
-//     let tagg = el.parentElement.innerText;
-//     console.log(tagg);
-//     if (el.checked == true) {
-//         rooms.push(tagg);
-//         avail.innerHTML += `<li class="fs-6 font">${tagg}</li>`;
-//     } else {
-//         let found = rooms.findIndex(where=>where == tagg);
-//         rooms.splice(found, 1);
-//     }
-//     el.addEventListener("change", (e)=>{
-//         let tag = e.target.parentElement.innerText;
-//         if (el.checked == true) {
-//             rooms.push(tag);
-//             avail.innerHTML += `<li class="fs-6 font">${tag}</li>`;
-//             if (el.classList.contains("single")) {
-//                 // Use el instead of room_n[0] to enable/disable the corresponding room number input
-//                 el.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.lastElementChild.firstElementChild.disabled = false;
-//             } else {
-//                 el.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.lastElementChild.firstElementChild.disabled = true;
-//             }
-//             // if (el.classList.contains("double")) {
-//             //     el.parentElement.nextElementSibling.nextElementSibling.disabled = false;
-//             // } else {
-//             //     el.parentElement.nextElementSibling.nextElementSibling.disabled = true;
-//             // }
-//             // if (el.classList.contains("self")) {
-//             //     el.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.disabled = false;
-//             // } else {
-//             //     el.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.disabled = true;
-//             // }
-//         } else {
-//             let found = rooms.findIndex(where=>where == tag);
-//             rooms.splice(found, 1);
-//             if (rooms.length == 0) {
-//                 avail.innerHTML = "";
-//             } else {
-//                 avail.innerHTML = "";
-//                 for (let i = 0; i < rooms.length; i++) {
-//                     avail.innerHTML += `<li class="fs-6 font">${rooms[i]}</li>`;
-//                 }
-//             }
-//         }
-//         console.log(rooms);
-//     })
-// })
-
-// const types = document.querySelectorAll('.single, .double, .self');
-// const room_n = document.querySelectorAll('#single_r, #double_r, #self_r');
-// // const avail = document.querySelector('#available');
-
-// types.forEach((type) => {
-//   type.addEventListener('change', (event) => {
-//     const tag = event.target.parentElement.innerText;
-
-//     if (event.target.checked) {
-//       rooms.push(tag);
-//       avail.innerHTML += `<li class="fs-6 font">${tag}</li>`;
-//     } else {
-//       const found = rooms.findIndex((room) => room === tag);
-//       rooms.splice(found, 1);
-//       avail.innerHTML = rooms.map((room) => `<li class="fs-6 font">${room}</li>`).join('');
-//     }
-
-//     room_n.forEach((room) => {
-//       room.disabled = true;
-//     });
-
-//     if (document.querySelector('.single').checked) {
-//       room_n[0].disabled = false;
-//     }
-
-//     if (document.querySelector('.double').checked) {
-//       room_n[1].disabled = false;
-//     }
-
-//     if (document.querySelector('.self').checked) {
-//       room_n[2].disabled = false;
-//     }
-//   });
-// });
 
 
 
@@ -518,33 +284,13 @@ locate.addEventListener("input", ()=>{
             e.preventDefault();
         })
     })
-    // let aparts = document.querySelectorAll("#single, #double, #self")
-    // aparts.forEach((el)=>{
-    //     el.addEventListener("click", (e)=>{
-    //         e.preventDefault();
-    //     })
-    // })
-// save.addEventListener("click", (e)=>{
-//     e.preventDefault()
-    // let nos = []
-    // nos.push(s_least.value, d_least.value)
-    // let nulls = nos.find((where)=>where === null || where === undefined || where === "")
-    // // nos.slice(nulls)
-    // console.log(nulls);
-    // console.log(nos);
-//     if (s_least.value == undefined && d_least.value == undefined) {
-//         save.disabled = true
-//     } else {
-        
-//     }
-// })
-let hostels = JSON.parse(localStorage.getItem("hostels"))
 let agent = JSON.parse(localStorage.getItem("Agents"))
 function post(e) {
     if (hname.value == "" || description.value == "" || city.value == "" || locate.value == "" || imageInput.value == "" || (document.querySelector(".single").checked == false && document.querySelector(".double").checked == false && document.querySelector(".self").checked == false) || (document.getElementById("single_r").value == "" && document.getElementById("double_r").value == "" && document.getElementById("self_r").value == "") || (document.getElementById("single_m").value == "" && document.getElementById("double_m").value == "" && document.getElementById("self_m").value == "") || conts.value == "") {
         alert("Input fields cannot be empty");
         return;
     } else {
+        ids++
         alert("correct")
         let post_room = {
             hostelname : hname.value,
@@ -563,33 +309,47 @@ function post(e) {
                             self : room_p[2].value
                         },
             agentcontact : conts.value,
-            agentmail : c_user.agentmail
+            agentmail : c_user.agentmail,
+            hostel_id : ids
         }
         if (hostels == null) {
             hostels = [];
             hostels.push(post_room);
             localStorage.setItem("hostels", JSON.stringify(hostels))
+            window.location.reload()
         } else {
             hostels.push(post_room);
             localStorage.setItem("hostels", JSON.stringify(hostels))
+            window.location.reload()
         }
         console.log(hostels);
     }
-    window.location.reload()
 }
-//     let agentt = JSON.parse(localStorage.getItem(""))
-//     let agenthostel = hostels.find(where => where.agentmail == )
-// if (condition) {
-    
-// } else {
-    
-// }
+
 if (c_user == null){
-    pro.innerHTML = `<img src="My avatar.png" class="rounded-5" width="40vw" alt="">`
-    logg.innerHTML = "Log In"
-    pro.style.padding = "0px"
-    pro.style.borderRadius = "100%"
-    window.location.href = "index.html"
+    if (sa == 'Super Admin') {
+            document.getElementById("create").style.display = 'none'
+            document.getElementById("demos").style.display = 'none'
+            document.getElementById("display").innerHTML = ''
+        for (let i = 0; i < hostels.length; i++) {
+            const element = hostels[i];
+            document.getElementById("display").innerHTML += `
+                <div class=" w-100 d-flex align-items-center justify-content-between px-4 py-2">
+                    <h6>${element.hostelname}</h6>
+                    <label class="form-check-label">
+                        Disable
+                        <input onchange="disable(${element.hos})" class="form-check-input single" value="Single occupancy room" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    </label>
+                </div>
+                `
+        }
+    } else if(sa == null){
+        pro.innerHTML = `<img src="My avatar.png" class="rounded-5" width="40vw" alt="">`
+        logg.innerHTML = "Log In"
+        pro.style.padding = "0px"
+        pro.style.borderRadius = "100%"
+        window.location.href = "index.html"
+    }
 } else{
     let letter = c_user.Occ_firstname || c_user.Occ_name || c_user.agentname || c_user.agentfirstname
     pro.innerHTML = letter.charAt(0)
@@ -597,27 +357,34 @@ if (c_user == null){
     pro.style.paddingInline = "15px"
 
     if (c_user.status === "agent") {
-        let possible = hostels.find(where => where.agentmail === c_user.agentmail)
-        if (possible) {
+        // let myhost = [];
+        let myhost = hostels.filter(item => item.agentmail === c_user.agentmail)
+        if (myhost.length > 0) {
             document.getElementById("have").innerHTML = "Your listed hostels";
-            let myhost = [];
-            myhost.push(possible);
-            console.log(possible);
+            // hostels.forEach((el)=>{
+            //     // let possible =    hostels.find(where => where.agentmail === c_user.agentmail)
+            //     // if (possible) {
+            //         myhost.push(possible);
+            //         console.log(myhost);
+            //     // }
+                
+            // })
+            console.log(myhost);
+            // console.log(possible);
             localStorage.setItem("myhostel", JSON.stringify(myhost));
-    
+            console.log(myhost);
             for (let i = 0; i < myhost.length; i++) {
                 const element = myhost[i];
                 document.getElementById("myhos").innerHTML += `
                     <div class="each w-75 text-start">
+                        <div class="d-flex imgs w-100 justify-content-around overflow-x-scroll gap-3">
+                            ${myhost[i].images.map(imageUrl => `<img src="${imageUrl}" alt="">`).join('')}
+                        </div>
                         <h2>Hostel Information</h2>
                         <p><strong>Hostel Name:</strong> ${myhost[i].hostelname}</p>
                         <p><strong>Description:</strong> ${myhost[i].description}</p>
                         <p><strong>City:</strong> ${myhost[i].city}</p>
                         <p><strong>Location:</strong> ${myhost[i].location}</p>
-                        <h3>Images</h3>
-                        <div class="d-flex w-100 justify-content-around overflow-x-scroll gap-3">
-                            ${myhost[i].images.map(imageUrl => `<img src="${imageUrl}" width="300px" height="200px" alt="">`).join('')}
-                        </div>
                         <h3>Utilities</h3>
                         <ul>
                             ${myhost[i].utilities.map(utility => `<li>${utility}</li>`).join('')}
@@ -639,10 +406,15 @@ if (c_user == null){
                     </div>
                 `;
             }
-        } else {
-            document.getElementById("body").innerHTML = `<h1 class="font" style="height: 50vh;">Your hostel will show here</h1>`;
+        }else {
+            
+            document.getElementById("have").innerHTML = `<h1 class="font fs-1" style="height: 50vh;">Your launched hostel(s) will show here</h1>`;
         }
-    
+    function disable(index){
+        // e.preventDefault()
+        // console.log(e.target.parentElement)
+        console.log(index)
+    }
 
     // if (c_user.status === "agent") {
     //     let possible = hostels.find(where => where.agentmail == c_user.agentmail)
@@ -734,8 +506,15 @@ if (c_user == null){
     // } else {
     //     document.getElementById("body").innerHTML = "Your hostel will show here"
     // }
-}else{
-    document.getElementById("body").innerHTML = `<h1 class="font" style="height: 50vh;">Your hostel will show here</h1>`;
-            
-        }
+    }else{
+        // console.log(hostels);
+        // console.log(c_user.status);
+        document.getElementById("body").innerHTML = `<h1 class="font" style="height: 50vh;">You booked hostel will show here</h1>`;
+        hostels.forEach(el => {
+                console.log(el.booked_room);
+                el.booked_room.forEach((e)=>{
+                    console.log(e);
+                })
+        });    
+    }
 }

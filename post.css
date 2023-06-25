@@ -11,13 +11,13 @@ body{
     width: 100vw;
 }
 
-.top .btn{
+.top .botn{
     color: white;
     font-weight: 400;
     white-space: nowrap;
     border: none;
 }
-.top .btn:hover{
+.top .botn:hover{
     /* background-color: bisque; */
     border-bottom: 2px solid orange;
 }
@@ -139,14 +139,17 @@ body{
     width: 100%;
     min-width: 250px;
     padding: 20px;
-    box-shadow: 0px 0px 10px grey;
+    box-shadow: 0px 0px 20px grey inset, 0px 0px 10px;
+    margin: 30px;
 }
 .each .imgs{
     width: 100%;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .each img{
-    min-width: 200px;
+    min-width: 300px;
+    min-height: 300px;
     transition: all ease-in-out 0.3s;
 }
 .each img:hover{
@@ -157,7 +160,7 @@ body{
     background-color: cadetblue;
 }
 #footer{
-    height: 60vh;
+    height: fit-content;
     background-color: rgb(30, 47, 47);
 }
 div .foot a{

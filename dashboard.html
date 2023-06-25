@@ -11,61 +11,74 @@
 </head>
 <body>
     <div class="main">
-        <div id="topn" class="top d-flex flex-column">
-            <div id="" class="top w-100 d-flex align-items-center justify-content-between bg-dark py-1 px-4">
-                <a href="" class="" ><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
-                <div class="div d-flex align-items-center justify-content-around mx-5 px-3 w-50">
-                    <a href="index.html" class="btn rounded-0">Home</a>
-                    <a onclick="rooms(event)" class="btn rounded-0 get text-warning">Apartments</a>
-                    <a class="btn rounded-0 get">Cafe</a>
-                    <a class="btn rounded-0 get">More <i class="fa fa-chevron-down"></i></a>
-                    <!-- <button id="loggin" class="btn sign">Log in</button> -->
-                </div>
-                <ul class="div d-flex justify-content-around align-items-center w-50">
-                    <li><button id="hostel" class="bg-transparent"><i class="fa-regular fa-star text-warning"></i>My Hostel</button></li>
-                    <li><button id="cart" class="bg-transparent"><i class="fa fa-cart-flatbed text-warning"></i>Cart</button></li>
-                    <li><button id="inbox" class="bg-transparent text-start sign">Inbox</button></li>
-                    <li class="stats position-relative d-flex flex-column justify-content-end align-items-end">
-                        <button id="pro" class=" rounded-5 bg-black get" onclick=""><img src="My avatar.png" class="rounded-5" width="40vw" alt=""></button>
-                        <div class="stat rounded-1 gap-1 p-1">
-                            <button class="bg-transparent p-1 my-1 text-start" onclick="get1()">Profile</button>
-                            <button class="bg-transparent p-1 my-1 text-start" onclick="">Account</button>
-                            <button class="bg-transparent p-1 my-1 text-start" onclick="">Orders</button>
-                            <button class="bg-transparent p-1 my-1 text-start" onclick="">History</button>
-                            <button id="log" class="bg-transparent p-1 my-1 text-warning text-start" onclick="logout(event)">LOGOUT</button>
-                        </div>
+
+        <nav class="navbar navbar-expand-lg bg-dark top topn">
+            <div class="container-fluid container">
+              <a class="navbar-brand" href="index.html"><img src="ezgif-5-7b77363014.png" width="150px" alt=""></a>
+              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse w-50" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link botn" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link botn  text-warning" href="#">Apartments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link botn" href="#">Cafe</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="text-light nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Amenities</a>
                     </li>
+                      <li>
+                        <a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Cafe</a>
+                    </li>
+                      <li>
+                        <a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Agents</a>
+                    </li>
+                      <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                      <li>
+                        <a class="btn text-dark rounded-0 w-100 text-start dropdown-item">Contact us</a>
+                    </li>
+                    </ul>
+                  </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button id="hostel" class="botn text-light  rounded-0 w-100 text-start bg-transparent nav-link"><i class="fa-regular fa-star text-warning"></i>My Hostel</button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="cart" class="botn text-light  rounded-0 w-100 text-start bg-transparent nav-link"><i class="fa fa-cart-flatbed text-warning"></i>Cart</button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="inbox" class="botn text-light  rounded-0 w-100 bg-transparent nav-link text-start sign">Inbox</button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button id="pro" class="text-light nav-link rounded-5 bg-black" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="My avatar.png" class="rounded-5" width="40px" alt=""></button>
+                        <ul class="dropdown-menu">
+                          <li><button class="bg-transparent p-1 my-1 text-start text-dark dropdown-item" onclick="get1()">Profile</button></li>
+                          <li><button class="bg-transparent p-1 my-1 text-start text-dark dropdown-item" onclick="">Account</button></li>
+                          <li><button class="bg-transparent p-1 my-1 text-start text-dark dropdown-item" onclick="">Orders</button></li>
+                          <li><button class="bg-transparent p-1 my-1 text-start text-dark dropdown-item" onclick="">History</button></li>
+                          <li><button id="log" class="bg-transparent p-1 my-1 text-warning text-start dropdown-item" onclick="logout(event)">LOGOUT</button></li>
+                        </ul>
+                      </li>
+                </ul>
+              </div>
             </div>
-            <!-- <div class="w-100 d-flex align-items-center justify-content-between px-4">
-                <a class="btn"><img src="ezgif-5-7b77363014.png" width="100rem" alt=""></a>
-                <div class="search d-flex bg-light rounded-1 w-25">
-                    <input type="text" name="" id="search" class="bg-transparent w-100" placeholder="      Search">
-                    <button class="btn text-dark"><i class="fa fa-search"></i></button>
-                </div>
-            </div> -->
-            <!-- <div id="top" class="toop bg-danger w-100 d-flex align-items-center justify-content-between px-4">
-                <ul class="div d-flex justify-content-around align-items-center ">
-                    <li><button class="bg-transparent">Dashboard</button></li>
-                    <li><button class="bg-transparent">Rooms</button></li>
-                    <li><button class="bg-transparent text-start sign">Bookings</button></li>
-                    <li><button class="bg-transparent rounded-5 get" onclick="get()">Payments</button></li>
-                    <li><button class="bg-transparent text-start" onclick="get1()">Prifile</button></li>
-                    <li><button class="bg-transparent text-start" onclick="get1()">Prifile</button></li>
-                    <li><button class="bg-transparent text-start" onclick="get1()">Prifile</button></li>
-                    <li><button class="bg-transparent text-start" onclick="get1()">Prifile</button></li>
-                </ul>
-            </div> -->
-        </div>
+          </nav>
+
         
         <div class="body">
-            <!-- <div id="land" class="landed d-flex align-items-center justify-content-between py-5">
-                <img id="img" src="animh-1-removebg-preview.png" width="400px" height="35%" alt=""> -->
-                <!-- <h1 id="dev">Hostel rooms and apartments at affordable price</h1> -->
-                <!-- <div class="st d-flex align-items-center justify-content-center w-50">
-                    <button class="start" onclick="start()"><h4 class="text-white p-2 h-100 w-100">Get Started</h4></button>
-                </div> -->
-            <!-- </div> -->
             <div id="landd">
             <video autoplay muted loop id="myVideo">
                 <source src="stock-footage-camera-follows-a-pretty-black-well-dressed-woman-walking-down-a-parisian-street-in-the-springtime.webm" type="video/mp4">
@@ -79,23 +92,12 @@
                 </div>
               </div>
             </div>
-            <div id="hostels" class="w-100 gap-4 d-flex flex-wrap align-items-stretchjustify-content-around container my-5">
-                <!-- <div class="each rounded-1 py-3">
-                    <h6 class="text-center">Glory Hostel</h6>
-                    <p>Big room, one toilet and bathroom, neat ...</p>
-                    <div class="imgs d-flex overflow-x-hidden gap-1">
-                        <img src="wardrobe.jpg" width="100%" alt="">
-                    </div>
-                    <div class="px-3">
-                        <p>Ibadan, Close to Dugbe Campus</p>
-                        <div id="price" class="py-2">₦750,000</div>
-                    </div>
-                </div> -->
+            <div id="hostels" class="w-100 d-flex flex-wrap gap-2 align-items-stretch justify-content-around my-5">
             </div>
         </div>
         <div id="footer" class="mt-5 d-flex flex-column align-items-center justify-content-between gap-5 py-3">
             <a href=""><img src="ezgif-5-7b77363014.png" width="250rem" alt=""></a>
-            <div class="w-25 d-flex justify-content-around media">
+            <div class="w-25 d-flex gap-4 justify-content-around media">
                 <a href="https://wa.me/+2348020779250"><i class="fa-brands fa-whatsapp fs-2"></i></a>
                 <a href="https://www.facebook.com/isaac.oyedele.56"><i class="fa-brands fa-facebook fs-2"></i></a>
                 <a href="https://twitter.com/IsaacOyedele6"><i class="fa-brands fa-twitter fs-2"></i></a>
@@ -105,7 +107,7 @@
                 <a href="https://github.com/Isaacc20/Hostel-Management.git"><i class="fa-brands fa-github fs-2"></i></a>
             </div>
             <div class="d-flex flex-column align-items-center justify-content-between w-50 h-75">
-                <div class="foot d-flex align-items-center justify-content-around w-100">
+                <div class="foot d-flex gap-4 flex-wrap align-items-center justify-content-around w-100">
                     <a class="text-decoration-none h6" href="">Home</a>
                     <a class="text-decoration-none h6" href="">Rooms</a>
                     <a class="text-decoration-none h6" href="">Cafe</a>
@@ -114,7 +116,7 @@
                     <a class="text-decoration-none h6" href="">About us</a>
                     <a class="text-decoration-none h6" href="">Contacts</a>
                 </div>
-                <p class="text-light">The Isaac Hostels 2023 All Rights Reserved</p>
+                <small class="text-secondary">The Isaac Hostels 2023 All Rights Reserved</small>
             </div>
         </div>
     </div>
@@ -122,14 +124,4 @@
 </html>
 <script src="dashboard.js"></script>
 <script src="https://kit.fontawesome.com/2b4ea3e6c9.js" crossorigin="anonymous"></script>
-
-<!-- <script>
-    let one = document.getElementById("1")
-    let two = document.getElementById("2")
-    let three = document.getElementById("3")
-    let four = document.getElementById("4")
-
-    one.addEventListener("click", ()=>{
-
-    })
-</script> -->
+<script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js"></script>

@@ -6,7 +6,7 @@
     background-color: white;
     z-index: 1;
 }
-#topn{
+.topn{
     background-color: rgb(30, 47, 47);
     position: fixed;
     top: 0;
@@ -14,20 +14,20 @@
     left: 0;
     z-index: 2;
 }
-.top .btn{
+.top .botn{
     color: white;
     font-weight: 400;
     white-space: nowrap;
     border: none;
     border-bottom: 2px solid transparent;
 }
-.top .btn:hover{
+.top .botn:hover{
     /* background-color: bisque; */
     border-bottom: 2px solid orange;
 }
-.top .more:hover{
+/* .top .more:hover{
     border: none;
-}
+} */
 .top .stats .stat{
     position: absolute;
     width: 10%;
@@ -36,6 +36,10 @@
 }
 .top .stats:hover .stat{
     display: flex;
+}
+.s_admin{
+    color: white;
+    background-color: gray;
 }
 /* .top .sign{
     color: orange;
@@ -150,8 +154,8 @@
 }
 #imgs{
     scroll-behavior: smooth;
-    margin-top: 40%;
-    transition: margin-top ease-in-out 2s;
+    /* margin-top: 40%;
+    transition: margin-top ease-in-out 2s; */
 }
 .each{
     width: 25vw;
@@ -212,6 +216,17 @@
     line-height: 1.5;
     color: #555;
   }
+
+  .inactive{
+    /* margin-left: -100px;
+    transition: all ease-in-out 1s; */
+  }
+
+  .active{
+    /* margin-left: 0px;
+    transition: all ease-in-out 1s; */
+  }
+
   .bord button{
     width: fit-content;
     white-space: nowrap;
@@ -223,11 +238,11 @@
   }
   #clients{
     scroll-behavior: smooth;
-    margin-left: -100%;
+    /* margin-left: -100%; */
     transition: all ease-in-out 1s;
   }
   #person{
-    transform: scale(40%);
+    /* transform: scale(40%); */
     transition: all ease-in-out 1s;
   }
   .person{
@@ -278,9 +293,13 @@
     height: 80%;
     box-shadow: 0px 0px 10px black;
     background-color: white;
+    /* border: 7px solid transparent; */
+    /* border-image: linear-gradient(to bottom right, darkgoldenrod, black)30 stretch; */
+    /* border: 7px solid transparent;
+    border-image: linear gradient(cadetblue, brown) 30 stretch; */
     border-top: 7px solid cadetblue;
     border-bottom: 7px solid brown;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow-y: scroll;
     /* background-image: url(iDev\ HM\ Black.png);
     background-attachment: fixed;
@@ -354,8 +373,11 @@
 }
 
 #footer{
-    height: 60vh;
+    height: fit-content;
     background-color: rgb(30, 47, 47);
+}
+#footer small{
+    white-space: nowrap;
 }
 div .foot a{
     color: aliceblue;
