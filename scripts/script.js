@@ -62,7 +62,7 @@ let exist = document.getElementById("exist")
 let loginCheck = document.getElementById("agentCheckForLogIn")
 let users = JSON.parse(localStorage.getItem("allUsers"))
 let agents_arr = JSON.parse(localStorage.getItem("Agents"))
-let c_user = JSON.parse(localStorage.getItem("c_user"))
+let c_user = localStorage.getItem("c_user")
 
 
 let allUsers = [
