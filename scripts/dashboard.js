@@ -5,12 +5,12 @@ let pro = document.getElementById("pro")
 let logg = document.getElementById("log")
 let hostel = document.getElementById("hostel")
 let hostels_div = document.getElementById("hostels")
-let c_user = JSON.parse(localStorage.getItem("c_user"))
+let c_user = localStorage.getItem("c_user")
 let sa = localStorage.getItem('SA')
 let hostels = JSON.parse(localStorage.getItem("hostels"))
 // console.log(hostels);
 if (c_user == null || c_user == undefined) {
-    let c_user = localStorage.getItem('c_user')
+    c_user = localStorage.getItem('c_user')
 }
 console.log(c_user);
 
@@ -309,7 +309,7 @@ if (hostels == null) {
     console.log(hostels, allHostels);
 }
 
-if (c_user == null && sa == null){
+if ((c_user == null || c_user == undefined) && sa == null){
     pro.innerHTML = `<img src="My avatar.png" class="rounded-5" width="40vw" alt="">`
     logg.innerHTML = "Log In"
     pro.style.padding = "0px"
@@ -317,6 +317,7 @@ if (c_user == null && sa == null){
     pro.innerHTML = `<i class="fa fa-star text-warning position-absolute top-0 bottom-0"></i>`
     pro.style.paddingBlock = "6px"
 } else{
+    c_user = JSON.parse(localStorage.getItem("c_user"))
     let letter = c_user.userFirstname
     pro.innerHTML = letter.charAt(0)
     console.log(letter);
