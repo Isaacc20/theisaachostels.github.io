@@ -284,7 +284,7 @@ locate.addEventListener("input", ()=>{
             e.preventDefault();
         })
     })
-let agent = JSON.parse(localStorage.getItem("Agents"))
+// let agent = JSON.parse(localStorage.getItem("Agents"))
 function post(e) {
     if (hname.value == "" || description.value == "" || city.value == "" || locate.value == "" || imageInput.value == "" || (document.querySelector(".single").checked == false && document.querySelector(".double").checked == false && document.querySelector(".self").checked == false) || (document.getElementById("single_r").value == "" && document.getElementById("double_r").value == "" && document.getElementById("self_r").value == "") || (document.getElementById("single_m").value == "" && document.getElementById("double_m").value == "" && document.getElementById("self_m").value == "") || conts.value == "") {
         alert("Input fields cannot be empty");
@@ -351,12 +351,12 @@ if (c_user == null){
         window.location.href = "index.html"
     }
 } else{
-    let letter = c_user.Occ_firstname || c_user.Occ_name || c_user.agentname || c_user.agentfirstname
+    let letter = c_user.userFirstname
     pro.innerHTML = letter.charAt(0)
     pro.style.paddingBlock = "6px"
     pro.style.paddingInline = "15px"
 
-    if (c_user.status === "agent") {
+    if (c_user.isAgent === true) {
         // let myhost = [];
         let myhost = hostels.filter(item => item.agentmail === c_user.agentmail)
         if (myhost.length > 0) {

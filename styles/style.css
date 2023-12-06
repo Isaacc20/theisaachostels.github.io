@@ -7,13 +7,16 @@
     z-index: 1;
 }
 .topn{
-    background-color: rgb(30, 47, 47);
+    /* background-color: rgb(30, 47, 47); */
+    background-color: rgba(0, 0, 0, 0.436);
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 2;
 }
+/* .navbar-collapse{
+} */
 .top .botn{
     color: white;
     font-weight: 400;
@@ -146,9 +149,9 @@
     background-color: brown;
     transform: skewY(-10deg);
 } */
-.home{
+/* .home{
     padding-block: 40px;
-}
+} */
 .imgs::-webkit-scrollbar{
     height: 0px;
 }
@@ -157,14 +160,18 @@
     /* margin-top: 40%;
     transition: margin-top ease-in-out 2s; */
 }
-.each{
+.each i{
+    border: 2px solid goldenrod;
+    /* color: cadetblue; */
+}
+/* .each{
     width: 25vw;
     min-width: 250px;
-}
-.each img{
+} */
+/* .each img{
     width: 100%;
     height: 60%;
-}
+} */
 #imgs h6{
     line-height: 1.5;
 }
@@ -217,22 +224,22 @@
     color: #555;
   }
 
-  .inactive{
-    /* margin-left: -100px;
-    transition: all ease-in-out 1s; */
-  }
+  /* .inactive{
+    margin-left: -100px;
+    transition: all ease-in-out 1s;
+  } */
 
-  .active{
-    /* margin-left: 0px;
-    transition: all ease-in-out 1s; */
-  }
+  /* .active{
+    margin-left: 0px;
+    transition: all ease-in-out 1s;
+  } */
 
-  .bord button{
+  /* .bord button,.bord h4 {
     width: fit-content;
     white-space: nowrap;
     border: 2px solid cadetblue;
     background-color: cadetblue;
-  }
+  } */
   .bord .starttt{
     color: cadetblue;
   }
@@ -286,47 +293,61 @@
     align-items: center;
     justify-content: center;
 }
-#form form{
+form{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    border-radius: 10px;
+    overflow-y: auto;
+    /* width: 70%;
     height: 80%;
     box-shadow: 0px 0px 10px black;
     background-color: white;
-    /* border: 7px solid transparent; */
-    /* border-image: linear-gradient(to bottom right, darkgoldenrod, black)30 stretch; */
-    /* border: 7px solid transparent;
-    border-image: linear gradient(cadetblue, brown) 30 stretch; */
+    border: 7px solid transparent;
+    border-image: linear-gradient(to bottom right, darkgoldenrod, black)30 stretch;
+    border: 7px solid transparent;
+    border-image: linear gradient(cadetblue, brown) 30 stretch;
     border-top: 7px solid cadetblue;
     border-bottom: 7px solid brown;
-    border-radius: 10px;
-    overflow-y: scroll;
-    /* background-image: url(iDev\ HM\ Black.png);
+    background-image: url(iDev\ HM\ Black.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat; */
 }
-#form form::-webkit-scrollbar{
+.modal{
+    backdrop-filter: blur(7px);
+}
+.modal form .inp{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.modal form input{
+    border: none;
+    outline: none;
+}
+.modal .cadet{
+    background-color: cadetblue;
+    white-space: nowrap;
+}
+.modal .cade{
+    color: cadetblue;
+    white-space: nowrap;
+}
+form::-webkit-scrollbar{
     background-color: transparent;
     width: 0px;
 }
-#form form::-webkit-scrollbar-thumb{
+form::-webkit-scrollbar-thumb{
     background-color: transparent;
 }
-#form form p{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+form p{
     display: none;
-    width: 100%;
 }
-#form form .fa{
+/* #form form .fa{
     width: fit-content;
     border: none;
     z-index: 1;
-}
-#form form .cre{
+} */
+/* #form form .cre{
     align-items: last baseline;
 }
 #form form .inp{
@@ -343,34 +364,34 @@
 #form form .inp:hover{
     transform: translateY(-4%);
     box-shadow: 0px 4px 7px grey;
-}
+} */
 .add{
     border: none;
     border-bottom: 1px solid black;
     box-shadow: 0px 5px 8px grey;
 }
-#form form .inp input{
+/* #form form .inp input{
     border: none;
     outline: none;
-}
-#form form .inp .btn{
+} */
+form .inp .btn{
     visibility: hidden;
 }
-#form form h5 button, #form form h6 button{
+/* #form form h5 button, #form form h6 button{
     color: cadetblue;
     background-color: transparent;
     border: none;
-}
-#form #signup, #login{
+} */
+/* #form #signup, #login{
     display: flex;
     flex-direction: column;
-}
-#form form .over{
+} */
+/* #form form .over{
     overflow: hidden;
 }
 #form form .over #two, #form form .over #three{
     margin-right: -100%;
-}
+} */
 
 #footer{
     height: fit-content;
@@ -392,6 +413,14 @@ div .foot a{
 }
 .media a:hover{
     color: cadetblue;
+}
+@media (max-width: 990px) {
+    .offer-box{
+        width: 80%;
+    }
+    .offer-box img{
+        height: 65%;
+    }
 }
 @media (max-width: 770px) {
     .bot{

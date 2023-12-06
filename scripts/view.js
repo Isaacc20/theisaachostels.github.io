@@ -23,7 +23,7 @@ let viewing_hostel = JSON.parse(localStorage.getItem("Viewing-hostel"))
 console.log(hostels);
 console.log(c_user);
 let view_hostel = hostels.find(where=>where.hostel_id == viewing_hostel.hostel_id)
-console.log(view_hostel);
+console.log(viewing_hostel);
 let single_arr = []
 let single_book = []
 let double_book = []
@@ -37,7 +37,7 @@ if (c_user === null){
     pro.innerHTML = `<i class="fa fa-star text-warning fs-6 position-absolute top-0 bottom-0"></i>`
     pro.style.padding = "0px"
 } else{
-    let letter = c_user.Occ_firstname || c_user.Occ_name || c_user.agentname || c_user.agentfirstname
+    let letter = c_user.userFirstname
     pro.innerHTML = letter.charAt(0)
     console.log(letter);
     pro.style.paddingBlock = "6px"
@@ -213,8 +213,8 @@ function check() {
         }
     }
 }
-let letter = c_user.Occ_firstname || c_user.Occ_name || c_user.agentname || c_user.agentfirstname
-    book_email.value = c_user.agentmail || c_user.Occ_email
+let letter = c_user.userFirstname
+    book_email.value = c_user.userEmail
     // if (c_user.status == "agent") {
     //     book_name.value ==  c_user.agentname || `${c_user.agentfirstname} ${c_user.agentlastname}`
     // } else{
@@ -293,6 +293,8 @@ console.log(single_arr);
 
 const paymentForm = document.getElementById('login');
 paymentForm.addEventListener("submit", pay, false);
+
+// PAY
 function pay(e) {
   e.preventDefault();
   if (book_name.value == "" || book_email.value == "" || book_no.value == "" || occ_no.value == "" || check_in.value == null || check_out.value == null) {
