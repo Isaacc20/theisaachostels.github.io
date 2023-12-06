@@ -424,7 +424,7 @@ function log(ev) {
         console.log(found);
         // found.status = "occupant"
         setTimeout(() => {
-            window.location.href = "dashboard.html"
+            window.location.href = "/html/dashboard"
             localStorage.setItem("c_user", JSON.stringify(found))
         }, 3000);
     }
